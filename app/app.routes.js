@@ -42,8 +42,8 @@ angular
         })
         
         //dietician
-        .when('/dietician', {
-            templateUrl: 'app/components/dietician/dieticanView.html'
+        .when('/food', {
+            templateUrl: 'app/components/food/foodView.html'
 //            ,controller: 'sceneController as ctrl'
         });
         

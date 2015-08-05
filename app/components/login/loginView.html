@@ -11,7 +11,9 @@
 	   </nav>
         <div class="container">
     
-		<form class="form-signin" role="form" method="post" action="scripts/database/server/login.php">
+<!--		<form class="form-signin" role="form" method="post" action="scripts/database/server/login.php">-->
+            <div>
+                
 			<h3 class="form-signin-heading greeding" style="text-align: center;">Welcome to APPetite - Your NHS Nutrition and Symptom Diary!</h3>
     		<div class="panel panel-default">
                 <div class="panel-body element-margin">
@@ -40,10 +42,12 @@
                       </table>
                     </div>
 				</div>
-                <button id="btn_signin_to_home" class="btn btn-lg btn-success btn-block btn-signup">Sign in</button>
-			</form>
+                <a id="btn_signin_to_home" class="btn btn-lg btn-success btn-block btn-signup" href="#home">Sign in</a>
+                
+                </div>
+<!--			</form>-->
 			
-			<button id="btn_signup_to_details" class="btn btn-lg btn-primary btn-block btn-signup"  onclick="Navigator.prototype.navigate(this.id)">Sign up</button>	
+			<a id="btn_signup_to_details" class="btn btn-lg btn-primary btn-block btn-signup" href="#register">Sign up</a>	
 		</div>
     </body>
 </html>
