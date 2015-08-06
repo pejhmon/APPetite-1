@@ -16,17 +16,32 @@
 		
     	<div class="container">
     	
-      	<ul class="nav nav-tabs nav-justified" role="tablist">
-	    	<li role="presentation" class="active"><a href="#patient-pane" aria-controls="patient-pane" role="tab" data-toggle="tab">Register as Patient</a></li>
-	    	<li role="presentation"><a href="#doctor-pane" aria-controls="doctor-pane" role="tab" data-toggle="tab">Register as Dietician</a></li>
+      	 <ul class="nav nav-tabs nav-justified" role="tablist">
+            <li role="presentation" ng-class="{active:tab.isSet(1)}">
+                <a href ng-click="ctrl.setTab(1)" role = "tab">Register as a Patient</a>
+             </li>    
+            <li role="presentation" ng-class="{active:tab.isSet(2)}">
+                <a href ng-click="ctrl.setTab(2)" role = "tab">Register as a Dietician</a>
+            </li>
+        </ul>
+                
+
+<!--
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+	    	<li role="presentation" class="active">
+                <a href="#patient-pane" aria-controls="patient-pane" role="tab" data-toggle="tab">Register as Patient</a></li>
+	    	<li role="presentation">
+                <a href="#doctor-pane" aria-controls="doctor-pane" role="tab" data-toggle="tab">Register as Dietician</a></li>
 	    </ul>
+-->
+
 	    
 	    
 	    
 
 		
 			<div class="tab-content tab-panel">
-				<div role="tabpanel" class="tab-pane active" id="patient-pane">
+				<div role="tabpanel" ng-show="ctrl.isSet(1)" id="patient-pane">
 				<form role="form" class="form-signup" id="patient_registration_form" method="post">	
 				<div class="panel panel-default element-margin">
 						<div class="panel-body tab-panel">
@@ -125,7 +140,7 @@
             <a id="btn_submit_userSignUpDetails" class="btn btn-lg btn-success btn-block" type="submit" href="#home">Submit</a>
                     
 				</div>			
-				<div role="tabpanel" class="tab-pane-active" id="doctor-pane">
+				<div role="tabpanel" ng-show="ctrl.isSet(2)" id="doctor-pane">
 				<form role="form" class="form-signup" id="dietician_registration_form" method="post">	
 				<div class="panel panel-default element-margin">
 					<div class="panel-body tab-panel">
