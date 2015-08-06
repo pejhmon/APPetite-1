@@ -8,43 +8,43 @@ angular
         //login
         .when('/', {
             templateUrl: 'app/components/login/loginView.html'
-//            ,controller: 'sceneController as ctrl'
+            ,controller: 'loginController as ctrl'
         })
     
         //register
         .when('/register', {
             templateUrl: 'app/components/register/registerView.html'
-//            ,controller: 'sceneController as ctrl'
+            ,controller: 'registerController as ctrl'
         })
 
         //home
         .when('/home', {
             templateUrl: 'app/components/home/homeView.html'
-//            ,controller: 'sceneController as ctrl'
+            ,controller: 'homeController as ctrl'
         })
         
         //symptoms  
         .when('/symptoms', {
             templateUrl: 'app/components/symptoms/symptomsView.html'
-//            ,controller: 'sceneController as ctrl'
+            ,controller: 'symptomsController as ctrl'
         })
         
         //history
         .when('/history', {
             templateUrl: 'app/components/history/historyView.html'
-//            ,controller: 'sceneController as ctrl'
+            ,controller: 'historyController as ctrl'
         })
         
         //weight
         .when('/weight', {
             templateUrl: 'app/components/weight/weightView.html'
-//            ,controller: 'sceneController as ctrl'
+            ,controller: 'weightController as ctrl'
         })
         
         //dietician
         .when('/food', {
             templateUrl: 'app/components/food/foodView.html'
-//            ,controller: 'sceneController as ctrl'
+            ,controller: 'foodController as ctrl'
         });
         
     });
