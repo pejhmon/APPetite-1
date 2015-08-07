@@ -11,17 +11,17 @@
                 //4 - meals
                 //5 - date
         
-            this.setTab = function(tabId) {
+            self.setTab = function(tabId) {
                 self.tab = tabId;
             };
         
-            this.isSet = function(tabId) {
+            self.isSet = function(tabId) {
                 return self.tab === tabId;
             };
-        
-            this.title = "Title";
-            this.body = "Body";
-        
+            
+            //Needs a switch
+            self.title = self.tab;
+            self.body = "Body";
 
         
     });
