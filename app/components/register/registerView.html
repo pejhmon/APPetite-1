@@ -16,7 +16,7 @@
 		
     	<div class="container">
     	
-      	 <ul class="nav nav-tabs nav-justified" role="tablist">
+      	 <ul class="nav nav-tabs nav-justified" role="tablist" ng-hide="ctrl.isSet(3)">
             <li role="presentation" ng-class='{"active":ctrl.tab==1}'>
                 <a href ng-click="ctrl.setTab(1)"  role = "tab">Register as a Patient</a>
              </li>    
@@ -131,8 +131,7 @@
 								</tr>
 
 							</table>
-		<h6 style="color:blue"  data-toggle="modal"
-								data-target="#modalTC" id="TC">I agree to the terms and conditions</h6>
+		                  <h6><a style="color:blue" id="TC" ng-click="ctrl.setTab(3)">View terms and conditions</a></h6>
 						</div>
 					</div>
 			
@@ -182,23 +181,21 @@
 			  </tr>
 			  
 		</table><br>
-		<h6 style="color:blue"  data-toggle="modal"
-								data-target="#modalTC" id="TC">I agree to the terms and conditions</h6>
+		<h6><a style="color:blue" id="TC" ng-click="ctrl.setTab(3)">View terms and conditions</a></h6>
 								
 					</div>
 				</div>
-	<button id="btn_submit_dieticianSignUpDetails" class="btn btn-lg btn-success btn-block btn-signup">Submit</button>	
+	<button id="btn_submit_dieticianSignUpDetails" class="btn btn-lg btn-success btn-block btn-signup" ng-hide="ctrl.isSet(3)">Submit</button>	
 	</form>		
 	</div>
 		</div>
 			
 		</div>
-		    	<div class="modal fade" id="modalTC" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-  			<div class="modal-dialog">
+  			<div class="modal-dialog" ng-show="ctrl.isSet(3)">
     			<div class="modal-content">
       				<div class="modal-header">
         				<button type="button" class="close" data-dismiss="modal">
-        					<span aria-hidden="true">&times;</span>
+        					
         					<span class="sr-only">Close</span>
         				</button>
         				<h4 class="modal-title" id="modal-info-title"></h4>
@@ -232,15 +229,10 @@ hospital team although information used will remain anonymous at all times.</p>
       				</div>
       				<div class="modal-footer" id="modal-info-footer">
 
-					<div class="checkbox col-xs-6">
-						<label><input type="checkbox" id="TCCheckbox" value="">I Agree</label>
-
-					</div>
-					<button type="button" class="modal-button btn btn-success col-xs-2" id="" data-dismiss="modal">Done</button>
+                        <a type="button" class="modal-button btn btn-success col-xs-2" ng-click="ctrl.setTab(1)">Close</a>
       				
       				</div>
     			</div>
   			</div>
-		</div>
   	</body>
 <html>
