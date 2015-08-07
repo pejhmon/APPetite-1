@@ -17,11 +17,11 @@
     	<div class="container">
     	
       	 <ul class="nav nav-tabs nav-justified" role="tablist">
-            <li role="presentation" ng-class="{active:tab.isSet(1)}">
-                <a href ng-click="ctrl.setTab(1)" role = "tab">Register as a Patient</a>
+            <li role="presentation" ng-class='{"active":ctrl.tab==1}'>
+                <a href ng-click="ctrl.setTab(1)"  role = "tab">Register as a Patient</a>
              </li>    
-            <li role="presentation" ng-class="{active:tab.isSet(2)}">
-                <a href ng-click="ctrl.setTab(2)" role = "tab">Register as a Dietician</a>
+            <li role="presentation" ng-class='{"active":ctrl.tab==2}'>
+                <a href ng-click="ctrl.setTab(2)"  role = "tab">Register as a Dietician</a>
             </li>
         </ul>
                 
