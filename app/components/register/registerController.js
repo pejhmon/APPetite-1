@@ -5,7 +5,8 @@
         .controller('registerController', function() {
             
             var self = this;
-            self.tab = 1;
+            self.tab = 'patient';
+            //includes 'dietician'
 
             this.setTab = function (tabId) {
                 self.tab = tabId;

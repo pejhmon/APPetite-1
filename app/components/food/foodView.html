@@ -23,7 +23,7 @@
 	    		</div>
       		<!-- </div> -->
 		</nav>
-    	<div class="container" ng-show="ctrl.isSet(1)">
+    	<div class="container" ng-show="ctrl.isSet('food')">
     		<div class="search-field">
       			<div class="input-group input-group-lg">
   					<input type="text" class="form-control"  placeholder="Enter food" id="search">
@@ -32,7 +32,7 @@
     						<span class="glyphicon glyphicon-search"></span>
     					</button>
 	    				<a class="btn btn-default" type="button" data-toggle="modal" 
-    						data-target="#modal-date" id="button-calendar" ng-click = "ctrl.setTab(3)">
+    						data-target="#modal-date" id="button-calendar" ng-click = "ctrl.setTab('date')">
 	    					<span class="glyphicon glyphicon-calendar"></span>
 	    				</a>
   					</span>
@@ -40,18 +40,18 @@
 		    	<div class="btn-group btn-group-justified" style="padding-top:10px;" role="group" aria-label="...">
   					<div class="btn-group" role="group">
     					<a type="button" class="btn btn-default" data-toggle="modal" 
-    						data-target="#modalInfo" id="newFood" ng-click="ctrl.setTab(2)">New food
+    						data-target="#modalInfo" id="newFood" ng-click="ctrl.setTab('new')">New food
     					</a>
   					</div>
   					<div class="btn-group" role="group">
     					<a type="button" class="btn btn-default" data-toggle="modal" 
-    						data-target="#modalInfo" id="frequentFood" ng-click="ctrl.setTab(2)">Frequent
+    						data-target="#modalInfo" id="frequentFood" ng-click="ctrl.setTab('frequent')">Frequent
     						<span class="badge" id="frequentConter"></span>
     					</a>
 					</div>
   					<div class="btn-group" role="group">
     					<a type="button" class="btn btn-default" data-toggle="modal" 
-    						data-target="#modalInfo" id="myMeals" ng-click="ctrl.setTab(2)">My meals
+    						data-target="#modalInfo" id="myMeals" ng-click="ctrl.setTab('meals')">My meals
     						<span class="badge" id="mealCounter"></span>
     					</a>
   					</div>
@@ -104,7 +104,7 @@
 		    </div>
     	</div>
 
-  			<div class="modal-dialog" ng-show="ctrl.isSet(2)">
+  			<div class="modal-dialog" ng-hide="ctrl.isSet('food')">
     			<div class="modal-content">
       				<div class="modal-header">
         				<button type="button" class="close" data-dismiss="modal">
@@ -116,13 +116,13 @@
       				<div class="modal-body" id="modal-info-body">{{ ctrl.body }}</div>
       				<div class="modal-footer" id="modal-info-footer">
       				
-      				<a type="button" class="modal-button btn btn-success" id="" data-dismiss="modal" ng-click="ctrl.setTab(1)">Done</a>
+      				<a type="button" class="modal-button btn btn-success" id="" data-dismiss="modal" ng-click="ctrl.setTab('food')">Done</a>
       				
       				</div>
     			</div>
   			</div>
 
-  			<div class="modal-dialog" ng-show="ctrl.isSet(3)">
+  			<div class="modal-dialog" ng-show="ctrl.isSet('date')">
     			<div class="modal-content">
       				<div class="modal-header">
         				<button type="button" class="close" data-dismiss="modal">
@@ -138,7 +138,7 @@
       						</form>
       				</div>
       				<div class="modal-footer">
-        				<a type="button" class="btn btn-success" data-dismiss="modal" ng-click="ctrl.setTab(1)">Done</a>
+        				<a type="button" class="btn btn-success" data-dismiss="modal" ng-click="ctrl.setTab('food')">Done</a>
       				</div>
     			</div>
   			</div>
