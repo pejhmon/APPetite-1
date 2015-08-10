@@ -42,56 +42,59 @@
 		
 			<div class="tab-content tab-panel">
 				<div role="tabpanel" ng-show="ctrl.isSet('patient')" id="patient-pane">
-				<form ng-submit="ctrl.submit()" name="registrationForm">	
+				<form ng-submit="ctrl.submit()" name="registerForm">	
 				<div class="panel panel-default element-margin">
 						<div class="panel-body tab-panel">
 
 							<table class="register-table">
 								<tr>
+                                    
 									<td align="left"><label>NHS Number:</label></td>
-									<td><input ng-model="ctrl.user.username" class="form-control" type="text" placeholder="Enter your 10 digit NHS number"></td>
-									<td><i class="glyphicon glyphicon-question-sign blue"></i></td>
+									<td><input ng-model="ctrl.user.nhsno" name ="nhsno" class="form-control" type="text" placeholder="Enter your 10 digit NHS number" required ng-minlength="10" ng-maxlength = "10"></td>
+									
 								</tr>
+                                
 								<tr>
 									<td align="left"><label>Password:</label></td>
-									<td><input ng-model="ctrl.user.password0" class="form-control" type="text" placeholder="Enter your password"></td>
-									<td><i class="glyphicon glyphicon-question-sign blue"></i></td>
+									<td><input ng-model="ctrl.user.password0" name="password0" class="form-control" type="password" placeholder="Enter your password" required ng-minlength="5"></td>
 								</tr>
 								<tr>
 				                    <td align="left"><label>Confirm Password:</label></td>
-									<td><input ng-model="ctrl.user.password1" class="form-control" type="text" placeholder="Confirm your password"></td>
-									<td><i class="glyphicon glyphicon-question-sign blue"></i></td>
+									<td><input ng-model="ctrl.user.password1" class="form-control" type="password" placeholder="Confirm your password" required></td>
+									
 								</tr>
 								<tr>
 				                    <td align="left"><label>Weight:</label></td>
-									<td><input ng-model="ctrl.user.weight" class="form-control" type="text" placeholder="Enter your current weight in kg"></td>
-									<td><i class="glyphicon glyphicon-question-sign blue"></i></td>
+									<td><input ng-model="ctrl.user.weight" class="form-control" type="number" placeholder="Enter your current weight in kg" required></td>
+									
 								</tr>
 								<tr>
 				                    <td align="left"><label>Date of Birth:</label></td>
-									<td><input ng-model="ctrl.user.dob" class="form-control" type="text" placeholder="Enter your date of birth"></td>
-									<td><i class="glyphicon glyphicon-question-sign blue"></i></td>
+									<td><input ng-model="ctrl.user.dob" class="form-control" type="date" placeholder="Enter your date of birth" required></td>
+									
 								</tr>
 				                <tr>
 				                    <td align="left"><label>Activity Level:</label></td>
-									<td><input ng-model="ctrl.user.activity" class="form-control" type="text" placeholder="1.0 is low, 2.0 is very high"></td>
-									<td><i class="glyphicon glyphicon-question-sign blue"></i></td>
+									<td><input ng-model="ctrl.user.activity" class="form-control" type="number" placeholder="1.0 is low, 2.0 is very high" required></td>
+									
 								</tr>
 								<tr>
 									<td align="left"><label for="gender">Gender:</label></td>
-									<td align="left"><input class="radio_buttons optional"
-										id="user_basic_sex_male" name="user_basic[sex]" type="radio"
-										value="Male"> Male <input
-										class="radio_buttons optional" id="user_basic_sex_female"
-										name="user_basic[sex]" type="radio" value="Female">
-										Female</td>
+									<td align="left" required>
+                                        <input type="radio" value="male" ng-model="ctrl.user.gender"> Male 
+                                        <input type="radio" value="female" ng-model="ctrl.user.gender">Female
+                                    </td>
 								</tr>
 
 							</table> 
-		                  <h6><a style="color:blue" id="TC" >View terms and conditions</a></h6> <!-- class="btn btn-lg btn-success btn-block" -->
+		                  <h6><a style="color:blue" id="TC" ng-click="ctrl.setTab('terms')">View terms and conditions</a></h6>
 						</div>
 					</div>
+                    <span ng-show="registerForm.nhsno.$error.minlength" class="form-control error"> Your NHS number is shorter than 10</span>
+                    <span ng-show="registerForm.nhsno.$error.maxlength" class="form-control error"> Your NHS number is longer than 10</span>
+                    <span ng-show="registerForm.password0.$error.minlength" class="form-control error"> Your password is shorter than 5</span>
 			     <input class="btn btn-lg btn-success btn-block"  type = "submit" value = "submit" ng-disabled="registerForm.$invalid">
+                    
 			</form>
                     
 				</div>			

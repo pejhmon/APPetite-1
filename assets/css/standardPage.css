@@ -4,6 +4,10 @@ body{
 	background-color:#eee;
 
 }
+.error{
+    color:red;
+    text-align:center;
+}
 .active{
     background-color:white;
 }
