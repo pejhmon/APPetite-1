@@ -42,83 +42,40 @@
 		
 			<div class="tab-content tab-panel">
 				<div role="tabpanel" ng-show="ctrl.isSet('patient')" id="patient-pane">
-				<form role="form" class="form-signup" id="patient_registration_form" method="post">	
+				<form ng-submit="ctrl.submit()" name="registrationForm">	
 				<div class="panel panel-default element-margin">
 						<div class="panel-body tab-panel">
 
 							<table class="register-table">
 								<tr>
-									<td align="left"><label for="nhsnumber">NHS
-											Number:</label></td>
-									<td><input class="form-control" name="nhsnumber"
-										id="nhsnumber" type="text" placeholder="Enter your NHS number"
-										required></td>
-									<td><span><a href="#" data-toggle="popover"
-											data-trigger="focus" data-placement="top"
-											title="What is this?"
-											data-content="The NHS number is a unique 10-digit identifier for all people registered with the NHS."><i
-												class="glyphicon glyphicon-question-sign blue"></i></a></span></td>
+									<td align="left"><label>NHS Number:</label></td>
+									<td><input ng-model="ctrl.user.username" class="form-control" type="text" placeholder="Enter your 10 digit NHS number"></td>
+									<td><i class="glyphicon glyphicon-question-sign blue"></i></td>
 								</tr>
 								<tr>
-									<td align="left"><label for="password">Password:</label></td>
-									<td><input class="form-control" name="password"
-										id="password_user" type="password"
-										placeholder="Enter your password" required></td>
-									<td><span><a href="#" data-toggle="popover"
-											data-trigger="focus" data-placement="top"
-											title="What is this?"
-											data-content="Please enter the password you would like associated with your account."><i
-												class="glyphicon glyphicon-question-sign blue"></i></a></span></td>
+									<td align="left"><label>Password:</label></td>
+									<td><input ng-model="ctrl.user.password0" class="form-control" type="text" placeholder="Enter your password"></td>
+									<td><i class="glyphicon glyphicon-question-sign blue"></i></td>
 								</tr>
 								<tr>
-									<td align="left"><label for="password_again">Confirm
-											Password:</label></td>
-									<td><input class="form-control" name="password_again"
-										id="password_confirm_user" type="password"
-										placeholder="Confirm your password" required></td>
-									<td><span><a href="#" data-toggle="popover"
-											data-trigger="focus" data-placement="top"
-											title="What is this?"
-											data-content="Please confirm the password you would like associated with your account."><i
-												class="glyphicon glyphicon-question-sign blue"></i></a></span></td>
+				                    <td align="left"><label>Confirm Password:</label></td>
+									<td><input ng-model="ctrl.user.password1" class="form-control" type="text" placeholder="Confirm your password"></td>
+									<td><i class="glyphicon glyphicon-question-sign blue"></i></td>
 								</tr>
 								<tr>
-									<td align="left"><label for="weight">Weight:</label></td>
-									<td><input class="form-control" name="weight" id="weight"
-										type="text" placeholder="Enter your weight" required></td>
-									<td><span><a href="#" data-toggle="popover"
-											data-trigger="focus" data-placement="top"
-											title="What is this?"
-											data-content="Please enter your current weight."><i
-												class="glyphicon glyphicon-question-sign blue"></i></a></span></td>
+				                    <td align="left"><label>Weight:</label></td>
+									<td><input ng-model="ctrl.user.weight" class="form-control" type="text" placeholder="Enter your current weight in kg"></td>
+									<td><i class="glyphicon glyphicon-question-sign blue"></i></td>
 								</tr>
 								<tr>
-									<td align="left"><label for="dob">Date of Birth:</label></td>
-									<td><input type="text" id="dob" name="dob"
-										class="form-control date"
-										placeholder="   Enter your date of birth" required></td>
-									<td><span><a href="#" data-toggle="popover"
-											data-trigger="focus" data-placement="top"
-											title="What is this?"
-											data-content="Please enter you date of birth."><i
-												class="glyphicon glyphicon-question-sign blue"></i></a></span></td>
+				                    <td align="left"><label>Date of Birth:</label></td>
+									<td><input ng-model="ctrl.user.dob" class="form-control" type="text" placeholder="Enter your date of birth"></td>
+									<td><i class="glyphicon glyphicon-question-sign blue"></i></td>
 								</tr>
-								<tr>
-									<td align="left"><label for="activity_level">Activity
-											Level:</label></td>
-									<td><input class="form-control" name="activity_level"
-										id="activity_level" type="text"
-										placeholder="Enter your activity level" required></td>
-									<td><span><a href="#" data-toggle="popover"
-											data-trigger="focus" data-placement="top"
-											title="What is this?"
-											data-content="Your activity level reflects how active you are.
-											1.0 = bedbound 
-											1.1 = sedintary
-											1.2 = moderate 
-											1.3 = active
-											"><i
-												class="glyphicon glyphicon-question-sign blue"></i></a></span></td>
+				                <tr>
+				                    <td align="left"><label>Activity Level:</label></td>
+									<td><input ng-model="ctrl.user.activity" class="form-control" type="text" placeholder="1.0 is low, 2.0 is very high"></td>
+									<td><i class="glyphicon glyphicon-question-sign blue"></i></td>
 								</tr>
 								<tr>
 									<td align="left"><label for="gender">Gender:</label></td>
@@ -130,13 +87,12 @@
 										Female</td>
 								</tr>
 
-							</table>
-		                  <h6><a style="color:blue" id="TC" ng-click="ctrl.setTab('terms')">View terms and conditions</a></h6>
+							</table> 
+		                  <h6><a style="color:blue" id="TC" >View terms and conditions</a></h6> <!-- class="btn btn-lg btn-success btn-block" -->
 						</div>
 					</div>
-			
+			     <input class="btn btn-lg btn-success btn-block"  type = "submit" value = "submit" ng-disabled="registerForm.$invalid">
 			</form>
-            <a id="btn_submit_userSignUpDetails" class="btn btn-lg btn-success btn-block" type="submit" href="#home">Submit</a>
                     
 				</div>			
 				<div role="tabpanel" ng-show="ctrl.isSet('dietician')" id="doctor-pane">

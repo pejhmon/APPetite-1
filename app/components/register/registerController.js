@@ -15,6 +15,10 @@
             this.isSet = function (tabId) {
                 return self.tab === tabId;
             };
-
+        
+            this.submit = function(){
+                console.log('User submitted with ', self.user);
+            };
+            
     });
 }());
