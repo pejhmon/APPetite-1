@@ -99,53 +99,39 @@
                     
 				</div>			
 				<div role="tabpanel" ng-show="ctrl.isSet('dietician')" id="doctor-pane">
-				<form role="form" class="form-signup" id="dietician_registration_form" method="post">	
-				<div class="panel panel-default element-margin">
-					<div class="panel-body tab-panel">
-	<table class="register-table">
- 			<tr>
-			    <td align="left"><label for="id">Identifying number:</label></td>
-			    <td><input class="form-control" name="id" id="identifing_number" type="text" placeholder="Enter your identifing number"></td>
-			  <td><span><a href="#" data-toggle="popover" data-trigger="focus" data-placement="top" title="What is this?"
-		    data-content="This is your identifying dietician number, which will become your username. For example, 'DTXXXXX', where X is a digit from 0-9."
-		    ><i class="glyphicon glyphicon-question-sign blue"></i></a></span>
-	
-		    </td>
-			  </tr>
-			  <tr>
-			    <td align="left"><label for="identifying_password">Dietician Registration Password:</label></td>
-			    <td><input class="form-control" name="identifying_password" id="identifying_password" type="password" placeholder="Enter the identifying password."></td>
-			  <td><span><a href="#" data-toggle="popover" data-trigger="focus" data-placement="top" title="What is this?"
-		    data-content="To register as a dietician you must enter the password created by the administrators. If you do not know this, please contact the application
-		    				operations team."
-		    ><i class="glyphicon glyphicon-question-sign blue"></i></a></span>
-		    </td>
-			  </tr>
-			  
-			  <tr>
-			    <td align="left"><label for="password">Account Password:</label></td>
-			    <td><input class="form-control" name="password" id="password_dietician" type="password" placeholder="Enter your password"></td>
-			  <td><span><a href="#" data-toggle="popover" data-trigger="focus" data-placement="top" title="What is this?"
-		    data-content="Please enter the password you would like associated with your account."
-		    ><i class="glyphicon glyphicon-question-sign blue"></i></a></span>
-		    </td>
-			  </tr>
-			  <tr>
-			    <td align="left"><label for="password_dietician_confirm">Confirm Account Password:</label></td>
-			    <td><input class="form-control" name="password_again" id="password_confirm_dietician" type="password" placeholder="Confirm your password"></td>
-			  <td><span><a href="#" data-toggle="popover" data-trigger="focus" data-placement="top" title="What is this?"
-		    data-content="Please confirm the password you would like associated with your account."
-		    ><i class="glyphicon glyphicon-question-sign blue"></i></a></span>
-		    </td>
-			  </tr>
-			  
-		</table><br>
-		<h6><a style="color:blue" id="TC" ng-click="ctrl.setTab('terms')">View terms and conditions</a></h6>
-								
-					</div>
-				</div>
-	<button id="btn_submit_dieticianSignUpDetails" class="btn btn-lg btn-success btn-block btn-signup" ng-hide="ctrl.isSet('terms')">Submit</button>	
-	</form>		
+                    <form ng-submit="ctrl.submit()" name="dieticianRegisterForm">	
+                    <div class="panel panel-default element-margin">
+                            <div class="panel-body tab-panel">
+
+                                <table class="register-table">
+                                    <tr>
+
+                                        <td align="left"><label>Identifying Number:</label></td>
+                                        <td><input ng-model="ctrl.user.id" name ="nhsno" class="form-control" type="text" placeholder="Enter your 10 digit NHS number"></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left"><label>Dietician Registration Password:</label></td>
+                                        <td><input ng-model="ctrl.user.dieticianpassword" name="dietpassword" class="form-control" type="password" placeholder="Enter your password" required ng-minlength="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left"><label>Account Password:</label></td>
+                                        <td><input ng-model="ctrl.user.password0" name="password0" class="form-control" type="password" placeholder="Enter your password" required ng-minlength="5"></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td align="left"><label>Confirm Account Password:</label></td>
+                                        <td><input ng-model="ctrl.user.password1" name="password1" class="form-control" type="password" placeholder="Enter your password" required ng-minlength="5"></td>
+                                    </tr>
+     
+
+                                </table> 
+                              <h6><a style="color:blue" id="TC" ng-click="ctrl.setTab('terms')">View terms and conditions</a></h6>
+                            </div>
+                        </div>
+           
+                     <input class="btn btn-lg btn-success btn-block"  type = "submit" value = "submit" ng-disabled="dieticianRegisterForm.$invalid">
+
+                </form>
 	</div>
 		</div>
 			
