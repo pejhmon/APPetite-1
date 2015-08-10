@@ -71,9 +71,15 @@
                                         <input type="radio" value="female" ng-model="ctrl.user.gender">Female
                                     </td>
 								</tr>
+                                <tr>
+                                    <td align="left"><label><a style="color:blue" id="TC" ng-click="ctrl.setTab('terms')">Agree to these Terms and Conditions?</a></label></td>
+                                    <td align="left" required>
+                                        <input type="radio" value="agreed" ng-model="ctrl.user.agreed">I agree
+                                    </td>
+                                </tr>
 
 							</table> 
-		                  <h6><a style="color:blue" id="TC" ng-click="ctrl.setTab('terms')">View terms and conditions</a></h6>
+		                  <h6></h6>
 						</div>
 					</div>
                     <span ng-show="registerForm.nhsno.$error.minlength" class="form-control error"> Your NHS number is shorter than 10</span>
@@ -108,10 +114,16 @@
                                         <td align="left"><label>Confirm Account Password:</label></td>
                                         <td><input ng-model="ctrl.user.password1" name="password1" class="form-control" type="password" placeholder="Enter your password" required ng-minlength="5"></td>
                                     </tr>
+                                      <tr>
+                                    <td align="left"><label><a style="color:blue" id="TC" ng-click="ctrl.setTab('terms')">Agree to these Terms and Conditions?</a></label></td>
+                                    <td align="left" required>
+                                        <input type="radio" value="agreed" ng-model="ctrl.user.agreed">I agree
+                                    </td>
+                                </tr>
      
 
                                 </table> 
-                              <h6><a style="color:blue" id="TC" ng-click="ctrl.setTab('terms')">View terms and conditions</a></h6>
+                            
                             </div>
                         </div>
            
