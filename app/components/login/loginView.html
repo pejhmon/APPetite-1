@@ -14,11 +14,11 @@
 
         <h3 class="form-signin-heading greeding" style="text-align: center;">Welcome to APPetite - Your NHS Nutrition and Symptom Diary!</h3>
             <div class="panel-default">
-                                        <form ng-submit="ctrl.submit()" name="dieticianRegisterForm">	
+                <form ng-submit="ctrl.submit()" name="loginForm">	
                     <div class="panel panel-default element-margin">
                             <div class="panel-body tab-panel">
 
-                                <table class="register-table">
+                                <table class="login-table">
                                     <tr>
 
                                         <td align="left"><label>NHS:</label></td>
@@ -26,13 +26,13 @@
                                     </tr>
                                     <tr>
                                         <td align="left"><label>Password:</label></td>
-                                        <td><input ng-model="ctrl.user.dieticianpassword" name="dietpassword" class="form-control" type="password" placeholder="Enter your password" required></td>
+                                        <td><input ng-model="ctrl.user.password" name="password" class="form-control" type="password" placeholder="Enter your password" required></td>
                                     </tr>
                                 </table>
                             </div>
                         </div>
            
-                     <input class="btn btn-lg btn-success btn-block"  type = "Log In" value = "submit" ng-disabled="dieticianRegisterForm.$invalid">
+                     <input class="btn btn-lg btn-success btn-block" type = "submit" value = "Log in" ng-disabled="loginForm.$invalid">
 
                 </form>
                 </div>

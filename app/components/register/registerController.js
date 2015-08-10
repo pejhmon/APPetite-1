@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('registerController', function() {
+        .controller('registerController', function($location) {
             
             var self = this;
             self.tab = 'patient';
@@ -18,6 +18,7 @@
         
             this.submit = function(){
                 console.log('User submitted with ', self.user);
+                $location.path('/');
             };
             
     });
