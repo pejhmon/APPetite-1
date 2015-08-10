@@ -25,20 +25,6 @@
             </li>
         </ul>
                 
-
-<!--
-        <ul class="nav nav-tabs nav-justified" role="tablist">
-	    	<li role="presentation" class="active">
-                <a href="#patient-pane" aria-controls="patient-pane" role="tab" data-toggle="tab">Register as Patient</a></li>
-	    	<li role="presentation">
-                <a href="#doctor-pane" aria-controls="doctor-pane" role="tab" data-toggle="tab">Register as Dietician</a></li>
-	    </ul>
--->
-
-	    
-	    
-	    
-
 		
 			<div class="tab-content tab-panel">
 				<div role="tabpanel" ng-show="ctrl.isSet('patient')" id="patient-pane">
@@ -87,7 +73,7 @@
 								</tr>
 
 							</table> 
-		                  <h6><a style="color:blue" id="TC" ng-click="ctrl.setTab('terms')">View terms and conditions</a></h6>
+		                  <h6><a style="color:blue" id="TC" ng-click="ctrl.setTab('terms')" href="#">View terms and conditions</a></h6>
 						</div>
 					</div>
                     <span ng-show="registerForm.nhsno.$error.minlength" class="form-control error"> Your NHS number is shorter than 10</span>
