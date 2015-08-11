@@ -109,5 +109,13 @@
                 self.selected = [];
             };
         
+            self.save = function(){
+                console.log(self.selected);
+            };
+        
+            self.submit = function(){
+                console.log(self.selected);
+            };
+        
     });
 }());
