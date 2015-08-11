@@ -56,7 +56,7 @@
                 <div class="panel">
                      <ul class="nav nav-tabs nav-stacked scroll">
                         <li role="presentation" ng-repeat="item in ctrl.items | filter:search">
-                            <a ng-click = ctrl.itemsubmit(item)>{{ item }}</a>
+                            <a ng-click = ctrl.itemSelect(item)>{{ item.label }}</a>
                          </li>    
                     </ul>
                 </div>
@@ -104,9 +104,12 @@
                     
                     <ul class="nav nav-tabs nav-stacked scroll">
                         <li role="presentation" ng-repeat="item in ctrl.selected">
-                            <a>{{ item }}</a>
+                            <div>
+                                {{ item.label }}
+                                <button class="btn btn-danger btn-xs" ng-click="ctrl.itemUnselect($index)"><span class="glyphicon glyphicon-trash"></span></button></div>
                          </li>    
                     </ul>
+                    
                     
                     
                     
