@@ -95,14 +95,18 @@
        
             self.itemSelect = function(toadd){
                 self.selected.push(toadd);
+                
                 self.caltotal = self.caltotal + Number(toadd["Energy.kcal"]);
                 self.prototal = self.prototal + Number(toadd["Protein.g"]);
                 self.flutotal = self.flutotal + Number(toadd["Water.g"]);
             };
             
-            self.itemUnselect = function(toremove){
-                console.log(toremove);
-                self.selected.splice(toremove,1);
+            self.clear = function(){                
+                self.caltotal = 0;
+                self.prototal = 0;
+                self.flutotal = 0;
+                
+                self.selected = [];
             };
         
     });

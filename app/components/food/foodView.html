@@ -92,10 +92,13 @@
 	  						<span>Selected food</span>
 	  					</div>
 	  					<div class="col-xs-6" align="right">
+                            
 	  						<button type="button" class="btn btn-xs btn-info" id="newMeal" data-toggle="modal" 
     						data-target="#modalInfo">
 	  						Save this meal
 	  						</button>
+                            <button type="button" class="btn btn-xs btn-delete" ng-click="ctrl.clear()">Clear All</button>
+        
 	  					</div>
 	  				</div>
   				</div>
@@ -104,17 +107,10 @@
                     
                     <ul class="nav nav-tabs nav-stacked scroll">
                         <li role="presentation" ng-repeat="item in ctrl.selected">
-                            <div>
-                                {{ item.label }}
-                                <button class="btn btn-danger btn-xs" ng-click="ctrl.itemUnselect($index)"><span class="glyphicon glyphicon-trash"></span></button></div>
+                            <div role="presentation">{{ item.label }} </div>
                          </li>    
                     </ul>
                     
-                    
-                    
-                    
-                    
-					
 				</div>
 			</div>
 			<div class="panel panel-default">
