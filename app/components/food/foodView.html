@@ -26,7 +26,17 @@
     	<div class="container" ng-show="ctrl.isSet('food')">
     		<div class="search-field">
       			<div class="input-group input-group-lg">
-  					<input type="text" class="form-control"  placeholder="Enter food" id="search">
+
+                    
+                    
+                    
+                   
+<!--                    <input class="form-control" ng-model="search" model="search" type="search" type="text" ng-model="selectedState" placeholder="Enter your food/drink search here">-->
+             
+                    <input class="form-control" type="search" ng-model="search" placeholder="Search...">
+                    
+                    
+                    
   					<span class="input-group-btn">
     					<button class="btn btn-default" type="button" id="searchButton">
     						<span class="glyphicon glyphicon-search"></span>
@@ -36,7 +46,25 @@
 	    					<span class="glyphicon glyphicon-calendar"></span>
 	    				</a>
   					</span>
-				</div>
+                </div>
+                
+                
+                
+                
+                
+                
+                <div class="panel">
+                     <ul class="nav nav-tabs nav-stacked">
+                        <li role="presentation" ng-repeat="item in ctrl.items | filter:search">
+                            <a>{{ item }}</a>
+                         </li>    
+                    </ul>
+                </div>
+                
+                
+                
+                
+                
 		    	<div class="btn-group btn-group-justified" style="padding-top:10px;" role="group" aria-label="...">
   					<div class="btn-group" role="group">
     					<a type="button" class="btn btn-default" data-toggle="modal" 

@@ -22,6 +22,13 @@
             //Needs a switch
             self.title = self.tab;
             self.body = "Body";
+        
+        
+            self.items = [ 
+                'Tomato Ketchup Ice Cream',
+                'Breast Milk Cream',
+                'Breast of Pidgeon',
+            ];
 
         
     });
