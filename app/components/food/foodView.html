@@ -53,7 +53,7 @@
                 
                 
                 
-                <div class="panel">
+                <div class="panel" >
                      <ul class="nav nav-tabs nav-stacked scroll">
                         <li role="presentation" ng-repeat="item in ctrl.items | filter:search">
                             <a ng-click = ctrl.itemSelect(item)>{{ item.label }}</a>
@@ -106,7 +106,7 @@
                     
                     
                     <ul class="nav nav-tabs nav-stacked scroll">
-                        <li role="presentation" ng-repeat="item in ctrl.selected">
+                        <li role="presentation" ng-repeat="item in ctrl.selected track by $index">
                             <div role="presentation">{{ item.label }} </div>
                          </li>    
                     </ul>
