@@ -77,6 +77,10 @@
             
             self.title = self.tab;
             self.body = "Body";
+            
+            self.caltotal = 0;
+            self.prototal = 0;
+            self.flutotal = 0;
         
         
             
@@ -91,6 +95,9 @@
        
             self.itemSelect = function(toadd){
                 self.selected.push(toadd);
+                self.caltotal = self.caltotal + Number(toadd["Energy.kcal"]);
+                self.prototal = self.prototal + Number(toadd["Protein.g"]);
+                self.flutotal = self.flutotal + Number(toadd["Water.g"]);
             };
             
             self.itemUnselect = function(toremove){
