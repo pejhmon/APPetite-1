@@ -104,9 +104,19 @@
                     
                     <ul class="nav nav-tabs nav-stacked scroll">
                         <li role="presentation" ng-repeat="item in ctrl.selected track by $index">
-                            <div role="presentation">{{ item.label }} </div>
+                            <p>{{ item.label }} </p>
                          </li>    
                     </ul>
+                    
+                    
+                   
+               
+                    
+                    
+                    
+                    
+                    
+                    
                     
 				</div>
 			</div>
@@ -194,7 +204,7 @@
       				<div class="modal-body" id="modal-info-body">
                         <ul class="nav nav-tabs nav-stacked scroll">
                             <li role="presentation" ng-repeat="item in ctrl.items">
-                                <div role="presentation"><a ng-click = "ctrl.itemSelect(item)">{{ item.label }}</a></div>
+                                <a ng-click = "ctrl.itemSelect(item)">{{ item.label }}</a>
                             </li>    
                         </ul>
                     </div>
@@ -216,7 +226,7 @@
       				<div class="modal-body" id="modal-info-body">
                         <ul class="nav nav-tabs nav-stacked scroll">
                             <li role="presentation" ng-repeat="item in ctrl.meals">
-                                <div role="presentation"><a>{{ item }}</a></div>
+                                <a>{{ item }}</a>
                             </li>    
                         </ul>
                     </div>
