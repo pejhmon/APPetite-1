@@ -82,7 +82,7 @@
             self.prototal = 0;
             self.flutotal = 0;
         
-        
+            self.meals = ["Macdonilds","Cheps"];
             
         
             self.setTab = function(tabId) {

@@ -213,7 +213,13 @@
         				</button>
         				<h4 class="modal-title" id="modal-info-title">My Meals</h4>
       				</div>
-      				<div class="modal-body" id="modal-info-body">{{ ctrl.body }}</div>
+      				<div class="modal-body" id="modal-info-body">
+                        <ul class="nav nav-tabs nav-stacked scroll">
+                            <li role="presentation" ng-repeat="item in ctrl.meals">
+                                <div role="presentation"><a>{{ item }}</a></div>
+                            </li>    
+                        </ul>
+                    </div>
       				<div class="modal-footer" id="modal-info-footer">
       				
       				<a type="button" class="modal-button btn btn-success" id="" data-dismiss="modal" ng-click="ctrl.setTab('food')">Done</a>
