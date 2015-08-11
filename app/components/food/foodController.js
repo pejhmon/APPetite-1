@@ -25,9 +25,17 @@
         
         
             self.items = [ 
-                'Tomato Ketchup Ice Cream',
-                'Breast Milk Cream',
-                'Breast of Pidgeon',
+                'Chocolate Milk',
+                'Strawberry Milk',
+                'Strawberry Ice Cream',
+            ];
+        
+            self.itemsubmit = function(item){
+                self.selected.push(item);
+                console.log(item);
+            }
+        
+            self.selected = [
             ];
 
         
