@@ -16,7 +16,16 @@
             self.items = [ 
                 'Chocolate Milk',
                 'Strawberry Milk',
-                'Strawberry Ice Cream',
+                'Javascript Ice Cream',
+                'Raisin Ice Cream',
+                'Rum Ice Cream',
+                'Green Ice Cream',
+                'Warm Ice Cream',
+                'Ancient Ice Cream',
+                'Vanilla Ice Cream',
+                'Mint Ice Cream',
+                'Fruit Ice Cream',
+                'Chocolate Ice Cream',
             ];
             
             self.title = self.tab;
@@ -35,9 +44,6 @@
                 self.selected.push(item);
                 console.log(item);
             }
-        
-          
-
         
     });
 }());
