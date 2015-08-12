@@ -4,7 +4,7 @@
         .module('appetiteApp')   
         .controller('symptomsController', function() {
             var self = this;
-            self.selected = [];
+            self.selected;
             self.tab;
         
             self.symptoms = [{ 
@@ -25,16 +25,25 @@
             ];
         
             self.selectSymptoms = function(toadd){
-                self.selected.push(toadd);
-                this.setTab(toadd.Name);
+                self.selected = toadd;
+                self.setTab(toadd.Name);
             };
         
-            this.setTab = function (tabId) {
+            self.setTab = function (tabId) {
                 self.tab = tabId;
             };
 
-            this.isSet = function (tabId) {
+            self.isSet = function (tabId) {
                 return self.tab === tabId;
+            };
+        
+            self.submitSymptom = function(){
+                console.log(self.newsymptom);
+            };
+    
+            self.submit = function(){
+                self.symptom.name = self.selected.Name;
+                console.log(self.symptom);  
             };
 
     });

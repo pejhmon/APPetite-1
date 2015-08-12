@@ -24,96 +24,50 @@
 		
 	</nav>
 	<div class="container">
-		<form class="form-signup" role="form">
+		<form class="form-signup" ng-submit="ctrl.submit()" name="symptomform">
 			<div class="well">
-				<form class="form-inline" role="form">
 					<div style="display: inline">
-						<div class="left-inner-addon ">
+						<div class="left-inner-addon">
 							<td align="left"><label>Date:</label></td>
-				            <td><input ng-model="ctrl.symptom.date" class="form-control" type="date">
+				            <td><input ng-model="ctrl.symptom.date" name="date" class="form-control" type="date">
 						</div>
 						<div class="left-inner-addon ">
 							<td align="left"><label>Time:</label></td>
-				            <td><input ng-model="ctrl.symptom.time" class="form-control" type="time">
+				            <td><input ng-model="ctrl.symptom.time" name="text" class="form-control" type="time">
 						</div>
 					</div>
-				</form>
-				<h6 align="center">Ordered head to toe</h6>
-    
-                
-                
-                
-                
-                
-                
                 
                 
 
-                    <div class="modal-body" id="modal-info-body">
-                        <ul class="nav nav-tabs nav-stacked scroll">
-                            <li role="presentation" ng-repeat="symptom in ctrl.symptoms" ng-class='{"active":ctrl.tab=="{{symptom.Name}}"}'>
-                                <a ng-click="ctrl.selectSymptoms(symptom)">{{ symptom.Name }}</a>
-                                <input ng-show="ctrl.isSet(symptom.Name)" type=text class="form-control comments" placeholder="Optional comments">
-                            </li>    
-                        </ul>
-                    </div>
+                <div class="modal-body" id="modal-info-body">
+                    <ul class="nav nav-tabs nav-stacked scroll">
+                        <li role="presentation" ng-repeat="symptom in ctrl.symptoms" ng-class='{"active":ctrl.tab=="{{symptom.Name}}"}'>
+                            <a ng-click="ctrl.selectSymptoms(symptom)">{{ symptom.Name }}</a>
+                            <input ng-model = "ctrl.symptom.comment" ng-show="ctrl.isSet(symptom.Name)" type=text class="form-control comments" placeholder="Optional comments" name="comment">
+                        </li>    
+                    </ul>
+                </div>
 
-
-
-
-    <!--
-                        <div class="drop-scoring">
-
-                            <br> <input type="text" class="form-control comments"
-                                id="symptomComment" placeholder="Optional comment"><br>
-                        </div>
-    -->
-                    
              
 			</div>
+            <input class="btn btn-lg btn-success btn-block" type="submit" value="Submit Symptom">
 		</form>
-
-<!--
-		<div class="hiddenSymptomContainer">
-			<form class="form-signup" role="form">
-				<div class="well">
-					<div class="right-inner-addon">
-						<i class="glyphicon glyphicon-plus" style="vertical-align: centre"></i>
-						<input class="btn btn-lg btn-success btn-block symptomAddButton"
-							type="button" id="btn_save_newCustomSymptom" style="float: right"
-							onclick="SubmitController.prototype.submit(this.id)">
-						<div style="overflow: hidden; padding-right: .5em;">
-							<input type="text" class="form-control" id="newSymptom"
-								placeholder="Enter symptom..."> <br>
-						</div>
-					</div>
-
-					<h4>Custom Symptoms</h4>
-					<ul class="list-group checked-list-box ">
-      
-                    </ul>
-					<br>
-				</div>
-			</form>
-		</div>
--->
         
-         <div class = "form-signup" ng-show="ctrl.isSet('notinlist')">
+         <div class = "form-signup" ng-show="ctrl.isSet('hiddenform')">
+            
             <div class = "well">
-                <input type=text class="form-control comments" placeholder="Enter new symptom here">
-                <button class="modal-button btn btn-success">Submit New Symptom</button>
+                <form ng-submit="ctrl.submitSymptom()" name="newSymptomForm">
+                    <input type=text class="form-control comments" ng-model="ctrl.newsymptom" placeholder="Enter new symptom here">
+                    <input class="modal-button btn btn-success" type="submit" value="Submit New Symptom">
+                </form>
             </div>
         </div>
-
-		<button id="revealHiddenCustomSymptoms" ng-click = "ctrl.setTab('notinlist')" class="btn btn-lg btn-primary btn-block">Symptom not in list
-		</button>
+        </br>
+		<button class="btn btn-lg btn-primary btn-block" ng-Click = "ctrl.setTab('hiddenform')">Symptom not in list</button>
         
        
 		
-		<button id="btn_submit_symptoms"
-			class="btn btn-lg btn-success btn-block submitSymptoms"
-			onclick="SubmitController.prototype.submit(this.id)">Submit
-			symptoms</button>
+
 		<br>
 	</div>
 
