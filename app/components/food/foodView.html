@@ -103,8 +103,9 @@
                     
                     
                     <ul class="nav nav-tabs nav-stacked scroll">
-                        <li role="presentation" ng-repeat="item in ctrl.selected track by $index">
-                            <p class="list-group">{{ item.label }} </p>
+                        <li role="presentation" ng-repeat="item in ctrl.selected">
+                            <button class="btn btn-default" disabled="disabled">{{ item.quantity }}</button>
+                            <span class="list-group">{{ item.label }}</span>
                          </li>    
                     </ul>
                     

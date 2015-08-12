@@ -83,7 +83,7 @@
             self.flutotal = 0;
         
             self.meals = ["Macdonilds","Cheps"];
-            
+
         
             self.setTab = function(tabId) {
                 self.tab = tabId;
@@ -94,20 +94,32 @@
             };
        
             self.itemSelect = function(toadd){
-                self.selected.push(toadd);
+                
+                var test = self.checkForDuplicates(toadd);
+                if (test >= 0){
+                    self.selected[test].quantity++;
+                }else{
+                    toadd.quantity = 1;
+                    self.selected.push(toadd);
+                }
                 
                 self.caltotal = self.caltotal + Number(toadd["Energy.kcal"]);
                 self.prototal = self.prototal + Number(toadd["Protein.g"]);
                 self.flutotal = self.flutotal + Number(toadd["Water.g"]);
             };
+        
+            self.checkForDuplicates = function(testee){
+                var index = self.selected.indexOf(testee);
+                return index;
+            };
             
             self.clear = function(){                
                 self.caltotal = 0;
                 self.prototal = 0;
-                self.flutotal = 0;
-                
+                self.flutotal = 0;        
                 self.selected = [];
             };
+        
         
             self.save = function(){
                 console.log(self.selected);
