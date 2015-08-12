@@ -104,7 +104,7 @@
                     
                     <ul class="nav nav-tabs nav-stacked scroll">
                         <li role="presentation" ng-repeat="item in ctrl.selected track by $index">
-                            <p>{{ item.label }} </p>
+                            <p class="list-group">{{ item.label }} </p>
                          </li>    
                     </ul>
                     
@@ -168,13 +168,13 @@
                                 <td><input ng-model="ctrl.food.weight" name ="weight" class="form-control" type="text" placeholder="Weight of food in kg"></td>
                             </tr>
                             <tr>
-                                <td><input ng-model="ctrl.user.id" name ="calories" class="form-control" type="text" placeholder="Calories (kcal)"></td>
+                                <td><input ng-model="ctrl.food.calories" name ="calories" class="form-control" type="text" placeholder="Calories (kcal)"></td>
                             </tr>
                             <tr>
-                                <td><input ng-model="ctrl.user.id" name ="protein" class="form-control" type="text" placeholder="Protien (g)"></td>
+                                <td><input ng-model="ctrl.food.protein" name ="protein" class="form-control" type="text" placeholder="Protien (g)"></td>
                             </tr>
                             <tr>
-                                <td><input ng-model="ctrl.user.id" name ="fluid" class="form-control" type="text" placeholder="Fluid (ml)"></td>
+                                <td><input ng-model="ctrl.food.fluid" name ="fluid" class="form-control" type="text" placeholder="Fluid (ml)"></td>
                             </tr>
                         </table> 
                     
