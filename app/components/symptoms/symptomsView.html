@@ -73,6 +73,7 @@
 			</div>
 		</form>
 
+<!--
 		<div class="hiddenSymptomContainer">
 			<form class="form-signup" role="form">
 				<div class="well">
@@ -95,11 +96,20 @@
 				</div>
 			</form>
 		</div>
+-->
+        
+         <div class = "form-signup" ng-show="ctrl.isSet('notinlist')">
+            <div class = "well">
+                <input type=text class="form-control comments" placeholder="Enter new symptom here">
+                <button class="modal-button btn btn-success">Submit New Symptom</button>
+            </div>
+        </div>
 
-		<button id="revealHiddenCustomSymptoms"
-			class="btn btn-lg btn-primary btn-block">Symptom not in list
+		<button id="revealHiddenCustomSymptoms" ng-click = "ctrl.setTab('notinlist')" class="btn btn-lg btn-primary btn-block">Symptom not in list
 		</button>
-		<!-- needs desktop email client -->
+        
+       
+		
 		<button id="btn_submit_symptoms"
 			class="btn btn-lg btn-success btn-block submitSymptoms"
 			onclick="SubmitController.prototype.submit(this.id)">Submit
