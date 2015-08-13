@@ -1,7 +1,6 @@
 <html>
-<body onload="OnLoad.prototype.load('history')">
-			<nav class="navbar navbar-default" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
     
  		<div class="col-xs-2 border">
             <a class="btn btn-default navbar-btn" id="nav-button" href="#home">
@@ -21,7 +20,7 @@
       </ul>
     </div>
       
-</nav>
+    </nav>
     	
     	<div class="container">
 	   		<div class="row clearfix">
@@ -41,72 +40,99 @@
                         </li>
                     </ul>
 	    			
-	       <div class="panel panel-default space-margin">
-	    			<div class="panel-heading" ng-hide="ctrl.isSet('summary')">
-                        <form style="margin:0 auto;display:inline" id="parameters">Select 
-									<select id="foodComponents" name="foodComponents" >
-										<option id="calories_dropdown" value="energy_kcal">Calories</option>
-										<option id="protein_dropdown" value="protein_g">Protein</option>
-										<option id="fluid_dropdown" value="water_g">Fluid</option>
-										<option id="weight_dropdown" value="Weight (kg)">Weight</option>
-									
-									</select>
-								</form>
-                            </div>
-								<div id = "target">
-	    				<div class="panel-body history-panel">
-	     				<div class="row" id="datepicker_div">
-							<div class="col-xs-6">	From: <input type="text" class="form-control date" id="datepickerFrom"  readonly="readonly" style="cursor :default">
-							</div> 
-								<div class="col-xs-6">To: <input type="text" class="form-control date" id="datepickerTo"  readonly="readonly" style="cursor :default">
-							</div>
-						</div>
-	     				<div class="row space-margin" id="historyVisualisation">
-							<div ng-show="ctrl.isSet('graph')">Graph</div>
-                            <div ng-show="ctrl.isSet('table')">Table</div>
-                            <div ng-show="ctrl.isSet('summary')">Summary</div>
-						</div>
-	     			
-	     		</div>
-			</div>
-	   </div>
+	       <div class="panel panel-default space-margin" ng-show="ctrl.isSet('graph')">
+               
+               <div class="panel-heading">
+                    Graph of Activity
+                </div>
+                <div class="panel-body history-panel">                
+                    <form style="margin:0 auto;display:inline" id="parameters">Select 
+                        <select id="foodComponents" name="foodComponents" >
+                            <option id="calories_dropdown" value="energy_kcal">Calories</option>
+                            <option id="protein_dropdown" value="protein_g">Protein</option>
+                            <option id="fluid_dropdown" value="water_g">Fluid</option>
+                            <option id="weight_dropdown" value="Weight (kg)">Weight</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="space-margin">
+                    <button class="btn btn-lg btn-success btn-block" data-toggle="modal" data-target="#modal-export">Export</button> 
+               </div>
+               
+            </div>
                     
-					</div>
-					
-				</div>
-			 <div class="space-margin">
-		    	<button class="btn btn-lg btn-success btn-block" data-toggle="modal" 
-    						data-target="#modal-export">Export</button> 
-		    </div>
+            <div class="panel panel-default space-margin" ng-show="ctrl.isSet('table')">
+                
+                <div class="panel-heading">
+                    Table of Activity
+                </div>
+                <div class="panel-body history-panel">                
+                    <form style="margin:0 auto;display:inline" id="parameters">Select 
+                        <select id="foodComponents" name="foodComponents" >
+                            <option id="calories_dropdown" value="energy_kcal">Calories</option>
+                            <option id="protein_dropdown" value="protein_g">Protein</option>
+                            <option id="fluid_dropdown" value="water_g">Fluid</option>
+                            <option id="weight_dropdown" value="Weight (kg)">Weight</option>
+                        </select>
+                        
+                        <div class="well">
+                            <table class = "table">
+                                <tr>
+                                    <td>Quantity</td>
+                                    <td>Name</td>
+                                    <td>Date</td>
+                                    <td>Total Calories</td>
+                                </tr>
+                                <tr ng-repeat="item in ctrl.items">
+                                    <td> {{ item.Quantity }}</td>
+                                    <td>{{ item.label }}</td>
+                                    <td>{{ item.Date }}</td>
+                                    <td>{{ item.TotalCal }}</td>
+                                </tr>    
+                            </table>
+                        </div>
+                        
+                        
+                        
+                    </form>
+                </div>
+                <div class="space-margin">
+                    <button class="btn btn-lg btn-success btn-block" data-toggle="modal" data-target="#modal-export">Export</button> 
+               </div>
+                
+            </div>
+                    
+            <div class="panel panel-default space-margin" ng-show="ctrl.isSet('summary')">
+                
+                <div class="panel-heading">
+                    Summary of Activity
+                </div>
+                <div class="panel-body history-panel">                
+                    <h3>Weight</h3>
+                        <p>Registration Date: {{ ctrl.weight }}</p>
+                        <p>Registration Weight: {{ ctrl.weight }}</p>
+                        <p>Most Recent Weigh In: {{ ctrl.weight }}</p>
+                        <p>Most Recent Weight: {{ ctrl.weight }}</p>
+                    </form>
+                </div>
+                <div class="space-margin">
+                    <button class="btn btn-lg btn-success btn-block" data-toggle="modal" data-target="#modal-export">Export</button> 
+               </div>
+                
+            </div>
+<!--
 
-  			<div class="modal-dialog">
-    			<div class="modal-content">
-      				<div class="modal-header">
-        				<button type="button" class="close" data-dismiss="modal">
-        				
-        					<span class="sr-only">Close</span>
-        				</button>
-        				<h4 class="modal-title">Send your nutrition report via eMail</h4><br>
-        				<h6 class="modal-title">nutritional report includes information on your weight change, calorie requirements
-        				and most frequent symptoms</h6>
-      				</div>
-
-      				<div class="modal-footer">
-						  <form method="post" name="contact_form">
-							Email Address: <input type="text" id="email_address" name="email"> 
-							 <input type="submit" class="btn btn-success" data-dismiss="modal"  value="Send" id="emailButton" onclick="SubmitController.prototype.submit(this.id)">
-							
-						</form>
-
-      				</div>
-    			</div>
-  			</div>
-	
-		</div>
-		
-<form method="POST" enctype="multipart/form-data" action="scripts/database/server/saveimage.php" id="myForm">
-    <input type="hidden" name="img_val" id="img_val" value="img_val" />
-</form>
-
+                            
+                            
+                            
+              
+ 
+-->
+						
+                 
+                
+               </div>
+            </div>
+        </div>
   	</body>
 <html>
