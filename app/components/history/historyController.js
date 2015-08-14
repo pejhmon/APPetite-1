@@ -2,10 +2,10 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('historyController', function() {
+        .controller('historyController', function($scope) {
             var self = this;
         
-            self.tab = 'summary';
+            self.tab = 'graph';
             //graph, table, summary
         
             self.select = 'calories';
@@ -13,13 +13,32 @@
             
             self.weight = "100"; 
 
-            this.setTab = function (tabId) {
+            self.setTab = function (tabId) {
                 self.tab = tabId;
             };
 
-            this.isSet = function (tabId) {
+            self.isSet = function (tabId) {
                 return self.tab === tabId;
             };
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
             self.items = [{ 
                 "FoodCode": "13-042",

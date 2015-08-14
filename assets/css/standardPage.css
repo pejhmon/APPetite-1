@@ -4,6 +4,12 @@ body{
 	background-color:#eee;
 
 }
+
+.container {
+    width:600px;
+    height:300px;
+}
+
 .scroll{
     max-height:320px;
     overflow-y:scroll;
