@@ -4,9 +4,13 @@
         .module('appetiteApp')   
         .controller('historyController', function() {
             var self = this;
-            self.tab = 'graph';
-            //includes 'dietician'
         
+            self.tab = 'summary';
+            //graph, table, summary
+        
+            self.select = 'calories';
+            //calories, protein, fluid, weight
+            
             self.weight = "100"; 
 
             this.setTab = function (tabId) {
@@ -49,9 +53,16 @@
         
         self.processData = function(){
             for(var i = 0; i < self.items.length; i++){
-                var multical = self.items[i]["Energy.kJ"] * self.items[i].Quantity;
-                var totalcal = {"TotalCal" : multical};
+                var multical = self.items[i]["Energy.kJ"] * self.items[i].Quantity;          
                 self.items[i].TotalCal = multical;
+                
+                var multipro = self.items[i]["Protein.g"] * self.items[i].Quantity;     
+                self.items[i].TotalPro = multipro;
+                
+                var multiflu = self.items[i]["Water.g"] * self.items[i].Quantity;
+                self.items[i].TotalFlu = multiflu;
+                
+                self.items[i].TotalWeight = "Total Weight Value TBC";
             }; 
         };
         

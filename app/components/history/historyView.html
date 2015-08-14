@@ -42,18 +42,23 @@
 	    			
 	       <div class="panel panel-default space-margin" ng-show="ctrl.isSet('graph')">
                
-               <div class="panel-heading">
-                    Graph of Activity
-                </div>
+               
                 <div class="panel-body history-panel">                
-                    <form style="margin:0 auto;display:inline" id="parameters">Select 
-                        <select id="foodComponents" name="foodComponents" >
-                            <option id="calories_dropdown" value="energy_kcal">Calories</option>
-                            <option id="protein_dropdown" value="protein_g">Protein</option>
-                            <option id="fluid_dropdown" value="water_g">Fluid</option>
-                            <option id="weight_dropdown" value="Weight (kg)">Weight</option>
-                        </select>
-                    </form>
+                         <div class="well">
+	
+                            <div class="left-inner-addon">
+                                <label>Display:
+                                    <select id="foodComponents" name="foodComponents" ng-model ="ctrl.select" align="right">
+                                            <option id="calories_dropdown" value="calories">Calories</option>
+                                            <option id="protein_dropdown" value="protein">Protein</option>
+                                            <option id="fluid_dropdown" value="fluid">Fluid</option>
+                                            <option id="weight_dropdown" value="weight">Weight</option>
+                                </select></label>
+            
+                            </div>
+	
+
+                        </div>
                 </div>
                 <div class="space-margin">
                     <button class="btn btn-lg btn-success btn-block" data-toggle="modal" data-target="#modal-export">Export</button> 
@@ -63,31 +68,46 @@
                     
             <div class="panel panel-default space-margin" ng-show="ctrl.isSet('table')">
                 
-                <div class="panel-heading">
-                    Table of Activity
-                </div>
+                
                 <div class="panel-body history-panel">                
-                    <form style="margin:0 auto;display:inline" id="parameters">Select 
-                        <select id="foodComponents" name="foodComponents" >
-                            <option id="calories_dropdown" value="energy_kcal">Calories</option>
-                            <option id="protein_dropdown" value="protein_g">Protein</option>
-                            <option id="fluid_dropdown" value="water_g">Fluid</option>
-                            <option id="weight_dropdown" value="Weight (kg)">Weight</option>
-                        </select>
-                        
+                    <form style="margin:0 auto;display:inline" id="parameters"> 
                         <div class="well">
+	
+                            <div class="left-inner-addon">
+                                <label>Start Date:<input ng-model="ctrl.startDate" input name="date" class="form-control" type="date"></label>
+                                <label>End Date:<input ng-model="ctrl.endDate" name="date" class="form-control" type="date"></label>
+                                <label>Display:
+                                    <select id="foodComponents" name="foodComponents" ng-model ="ctrl.select" align="right">
+                                            <option id="calories_dropdown" value="calories">Calories</option>
+                                            <option id="protein_dropdown" value="protein">Protein</option>
+                                            <option id="fluid_dropdown" value="fluid">Fluid</option>
+                                            <option id="weight_dropdown" value="weight">Weight</option>
+                                </select></label>
+            
+                            </div>
+	
+
+                        </div>
+
+                        <div class="well scroll">
                             <table class = "table">
                                 <tr>
                                     <td>Quantity</td>
                                     <td>Name</td>
                                     <td>Date</td>
-                                    <td>Total Calories</td>
+                                    <td ng-show="ctrl.select=='calories'">Total Calories</td>
+                                    <td ng-show="ctrl.select=='protein'">Total Protein</td>
+                                    <td ng-show="ctrl.select=='fluid'">Total Fluid</td>
+                                    <td ng-show="ctrl.select=='weight'">Total Weight</td>
                                 </tr>
                                 <tr ng-repeat="item in ctrl.items">
-                                    <td> {{ item.Quantity }}</td>
-                                    <td>{{ item.label }}</td>
-                                    <td>{{ item.Date }}</td>
-                                    <td>{{ item.TotalCal }}</td>
+                                        <td> {{ item.Quantity }}</td>
+                                        <td>{{ item.label }}</td>
+                                        <td>{{ item.Date }}</td>
+                                        <td ng-show="ctrl.select=='calories'">{{ item.TotalCal }}</td>
+                                        <td ng-show="ctrl.select=='protein'">{{ item.TotalPro }}</td>
+                                        <td ng-show="ctrl.select=='fluid'">{{ item.TotalFlu }}</td>
+                                        <td ng-show="ctrl.select=='weight'">{{ item.TotalWeight }}</td>
                                 </tr>    
                             </table>
                         </div>
@@ -107,13 +127,18 @@
                 <div class="panel-heading">
                     Summary of Activity
                 </div>
-                <div class="panel-body history-panel">                
+                <div class="panel-body history-panel scroll">                
                     <h3>Weight</h3>
                         <p>Registration Date: {{ ctrl.weight }}</p>
                         <p>Registration Weight: {{ ctrl.weight }}</p>
                         <p>Most Recent Weigh In: {{ ctrl.weight }}</p>
-                        <p>Most Recent Weight: {{ ctrl.weight }}</p>
-                    </form>
+                        <p>Most Recent Weight: {{ctrl.weight}}</p>
+                    <h3>Requirements</h3>
+                        <p>Calories Requirements: {{ctrl.weight}}</p>
+                        <p>Protein Requirements: {{ctrl.weight}}</p>
+                        <p>Fluid Requirements: {{ctrl.weight}}</p>
+                    <h3>Symptoms</h3>
+                        <p>An ng-repeat of smyptoms</p>
                 </div>
                 <div class="space-margin">
                     <button class="btn btn-lg btn-success btn-block" data-toggle="modal" data-target="#modal-export">Export</button> 
