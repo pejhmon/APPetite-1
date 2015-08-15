@@ -5,9 +5,9 @@
         .controller('homeController', function($scope) {
             var self = this;
         
-        self.caloriePercent = 90;
+        self.caloriePercent = 70;
         self.protienPercent = 22;
-        self.fluidData = 60;
+        self.fluidData = 11;
         
         self.caloriesdata = [
             {label: "Calories", value: self.caloriePercent, suffix: "%", color: "#00CC99"}

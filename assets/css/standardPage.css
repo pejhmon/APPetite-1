@@ -4,13 +4,16 @@ body{
 	background-color:#eee;
 }
 
+.linecontainer{
+    background:white;
+}
+
 .piecontainer{
     width:220px;
     height:220px;
     float:left;
     margin:4.5px;
     padding:1px;
-/*    background-color:white;*/
 }
 
 .scroll{

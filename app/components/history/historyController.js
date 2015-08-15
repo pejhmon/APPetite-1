@@ -23,37 +23,36 @@
         
         
 
-          $scope.config = {
-            title: 'Graph',
-            tooltips: true,
-            labels: false,
-            mouseover: function() {},
-            mouseout: function() {},
-            click: function() {},
-            legend: {
-              display: true,
-              //could be 'left, right'
-              position: 'right'
-            }
-          };
+            $scope.data = [
+                {x: 0, val_0: 4, val_1: 25, val_2: 60},
+                {x: 1, val_0: 8, val_1: 18, val_2: 40},
+                {x: 2, val_0: 15, val_1: 40, val_2: 50}
+            ];
+        
+            $scope.options = {
+              axes: {
+                  x: {key: 'x', ticksFormat: '.2f', type: 'linear', min: 0, max: 2, ticks: 2},
+                  y: {type: 'linear', min: 0, max: 20, ticks: 5},
+              },
+              margin: {
+                  right: 100
+              },
+              series: [
+                  {y: 'val_0', color: '#00CC99', axis:'y0', thickness: '2px', type: 'area', striped: true, label: 'Calories'}
+              ],
+                  lineMode: 'linear',
+                  tension: 0.7,
+                  drawLegend: true,
+                  drawDots: true,
+                  hideOverflow: false,
+                  columnsHGap: 5
+            };
 
-          $scope.data = {
-            series: ['Calories','Protein','Fluid','Weight'],
-            data: [{
-              x: "August",
-              y: [100, 110, 120, 130],
-            }, {
-              x: "September",
-              y: [300, 150, 50, 300]
-            }, {
-              x: "October",
-              y: [100, 90, 80, 70]
-            }, {
-              x: "November",
-              y: [54, 154, 254, 354]
-            }
-
-                   ]};
+        
+        
+        
+        
+        
         
 
             self.items = [{ 
