@@ -1,4 +1,4 @@
 (function () {
     'use strict';
-    angular.module('appetiteApp',['ngRoute','n3-line-chart']);
+    angular.module('appetiteApp',['ngRoute','angularCharts']);
 })();
