@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('foodController', function() {
+        .controller('foodController', function($location) {
             var self = this;
         
             self.tab = 'food';
@@ -128,6 +128,11 @@
             self.submit = function(){
                 console.log(self.selected);
             };
+        
+            self.submitNew = function(){
+                console.log(self.newfood);
+                self.tab = 'food';
+            };  
         
     });
 }());

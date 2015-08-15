@@ -26,8 +26,13 @@
 	<div class="container">
 		<form class="form-signup" ng-submit="ctrl.submit()" name="symptomform">
 			<div class="well">
-                        <h3 align= "center">{{ ctrl.reccomendation }}</h3>
+                        <h3 align= "center">{{ ctrl.title }}</h3>
 					<div style="display: inline">
+                        
+                        <div ng-show="ctrl.id == 'weight'" class="left-inner-addon">
+							<td align="left"><label>We have your weight at {{ ctrl.weight }}. Please update:</label></td>
+				            <td><input ng-model="ctrl.symptom.weight" name="date" class="form-control" type="number">
+						</div>
 						<div class="left-inner-addon">
 							<td align="left"><label>Date:</label></td>
 				            <td><input ng-model="ctrl.symptom.date" name="date" class="form-control" type="date">

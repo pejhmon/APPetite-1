@@ -6,6 +6,7 @@
             var self = this;
             self.id = "symptoms";
             self.submitvalue = "Submit Symptom";
+            self.title = "Enter your Symtpoms below"
             self.selected;
             self.tab;
         

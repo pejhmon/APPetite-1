@@ -8,7 +8,7 @@
             self.weight = 100;
             self.submitvalue = "Submit Weight";
         
-            self.reccomendation = "Entering your weight on a weekly basis is reccomended";
+            self.title = "Entering your weight on a weekly basis is reccomended";
             self.symptoms = [{ 
                 "Name": "Swollen Legs",
               },
@@ -33,5 +33,9 @@
 //                self.selected = toadd;
                 self.setTab(toadd.Name);
             };
+        
+            self.submit = function(){
+                console.log(self.symptom);
+            }
     });
 }());

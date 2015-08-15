@@ -107,17 +107,7 @@
                             <button class="btn btn-default" ng-click="ctrl.itemSelect(item)">{{ item.quantity }}</button>
                             <span class="list-group">{{ item.label }}</span>
                          </li>    
-                    </ul>
-                    
-                    
-                   
-               
-                    
-                    
-                    
-                    
-                    
-                    
+                    </ul>         
                     
 				</div>
 			</div>
@@ -160,29 +150,28 @@
       				</div>
       				<div class="modal-body" id="modal-info-body">
                     
-                    
                         <table class="register-table">
                             <tr>
-                                <td><input ng-model="ctrl.food.name" name ="name" class="form-control" type="text" placeholder="Food name"></td>
+                                <td><input ng-model="ctrl.newfood.name" name ="name" class="form-control" type="text" placeholder="Food name"></td>
                             </tr>
                             <tr>
-                                <td><input ng-model="ctrl.food.weight" name ="weight" class="form-control" type="text" placeholder="Weight of food in kg"></td>
+                                <td><input ng-model="ctrl.newfood.weight" name ="weight" class="form-control" type="text" placeholder="Weight of food in kg"></td>
                             </tr>
                             <tr>
-                                <td><input ng-model="ctrl.food.calories" name ="calories" class="form-control" type="text" placeholder="Calories (kcal)"></td>
+                                <td><input ng-model="ctrl.newfood.calories" name ="calories" class="form-control" type="text" placeholder="Calories (kcal)"></td>
                             </tr>
                             <tr>
-                                <td><input ng-model="ctrl.food.protein" name ="protein" class="form-control" type="text" placeholder="Protien (g)"></td>
+                                <td><input ng-model="ctrl.newfood.protein" name ="protein" class="form-control" type="text" placeholder="Protien (g)"></td>
                             </tr>
                             <tr>
-                                <td><input ng-model="ctrl.food.fluid" name ="fluid" class="form-control" type="text" placeholder="Fluid (ml)"></td>
+                                <td><input ng-model="ctrl.newfood.fluid" name ="fluid" class="form-control" type="text" placeholder="Fluid (ml)"></td>
                             </tr>
                         </table> 
                     
                     </div>
       				<div class="modal-footer" id="modal-info-footer">
       				
-      				<a type="button" class="modal-button btn btn-success" id="" data-dismiss="modal" ng-click="ctrl.setTab('food')">Done</a>
+      				<a type="button" class="modal-button btn btn-success" ng-click="ctrl.submitNew()">Done</a>
       				
       				</div>
     			</div>
