@@ -2,17 +2,15 @@ body{
 	display:block;
 	position: relative;
 	background-color:#eee;
-
 }
 
-.chart {
-    width: 500px;
-    height: 500px;
-}
-
-.container {
-    width:600px;
-    height:300px;
+.piecontainer{
+    width:220px;
+    height:220px;
+    float:left;
+    margin:4.5px;
+    padding:1px;
+/*    background-color:white;*/
 }
 
 .scroll{

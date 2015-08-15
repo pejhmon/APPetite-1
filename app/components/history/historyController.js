@@ -23,51 +23,37 @@
         
         
 
-              $scope.config = {
-                title: 'Products',
-                tooltips: true,
-                labels: false,
-                mouseover: function() {},
-                mouseout: function() {},
-                click: function() {},
-                legend: {
-                  display: true,
-                  //could be 'left, right'
-                  position: 'right'
-                }
-              };
+          $scope.config = {
+            title: 'Graph',
+            tooltips: true,
+            labels: false,
+            mouseover: function() {},
+            mouseout: function() {},
+            click: function() {},
+            legend: {
+              display: true,
+              //could be 'left, right'
+              position: 'right'
+            }
+          };
 
-              $scope.data = {
-                series: ['Sales', 'Income', 'Expense', 'Laptops', 'Keyboards'],
-                data: [{
-                  x: "Laptops",
-                  y: [100, 500, 0],
-                  tooltip: "this is tooltip"
-                }, {
-                  x: "Desktops",
-                  y: [300, 100, 100]
-                }, {
-                  x: "Mobiles",
-                  y: [351]
-                }, {
-                  x: "Tablets",
-                  y: [54, 0, 879]
-                }]
-              };
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+          $scope.data = {
+            series: ['Calories','Protein','Fluid','Weight'],
+            data: [{
+              x: "August",
+              y: [100, 110, 120, 130],
+            }, {
+              x: "September",
+              y: [300, 150, 50, 300]
+            }, {
+              x: "October",
+              y: [100, 90, 80, 70]
+            }, {
+              x: "November",
+              y: [54, 154, 254, 354]
+            }
+
+                   ]};
         
 
             self.items = [{ 
