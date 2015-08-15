@@ -26,15 +26,18 @@
 	<div class="container">
 		<form class="form-signup" ng-submit="ctrl.submit()" name="symptomform">
 			<div class="well">
+                        <h3 align= "center">{{ ctrl.reccomendation }}</h3>
 					<div style="display: inline">
 						<div class="left-inner-addon">
 							<td align="left"><label>Date:</label></td>
 				            <td><input ng-model="ctrl.symptom.date" name="date" class="form-control" type="date">
 						</div>
+<!--
 						<div class="left-inner-addon ">
 							<td align="left"><label>Time:</label></td>
 				            <td><input ng-model="ctrl.symptom.time" name="text" class="form-control" type="time">
 						</div>
+-->
 					</div>
                 
                 
@@ -50,7 +53,7 @@
 
              
 			</div>
-            <input class="btn btn-lg btn-success btn-block" type="submit" value="Submit Symptom">
+            <input class="btn btn-lg btn-success btn-block" type="submit" value={{ctrl.submitvalue}}>
 		</form>
         
          <div class = "form-signup" ng-show="ctrl.isSet('hiddenform')">
@@ -58,12 +61,12 @@
             <div class = "well">
                 <form ng-submit="ctrl.submitSymptom()" name="newSymptomForm">
                     <input type=text class="form-control comments" ng-model="ctrl.newsymptom" placeholder="Enter new symptom here">
-                    <input class="modal-button btn btn-success" type="submit" value="Submit New Symptom">
+                    <input class="modal-button btn btn-success" type="submit" value="Submit">
                 </form>
             </div>
         </div>
         </br>
-		<button class="btn btn-lg btn-primary btn-block" ng-Click = "ctrl.setTab('hiddenform')">Symptom not in list</button>
+		<button class="btn btn-lg btn-primary btn-block" ng-Click = "ctrl.setTab('hiddenform')" ng-hide="ctrl.id == 'weight'">Symptom not in list</button>
         
        
 		

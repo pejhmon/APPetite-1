@@ -4,6 +4,8 @@
         .module('appetiteApp')   
         .controller('symptomsController', function() {
             var self = this;
+            self.id = "symptoms";
+            self.submitvalue = "Submit Symptom";
             self.selected;
             self.tab;
         

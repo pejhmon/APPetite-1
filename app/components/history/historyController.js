@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('historyController', function($scope) {
+        .controller('historyController', function() {
             var self = this;
         
             self.tab = 'graph';
@@ -20,25 +20,23 @@
             self.isSet = function (tabId) {
                 return self.tab === tabId;
             };
-        
-        
 
-            $scope.data = [
-                {x: 0, val_0: 4, val_1: 25, val_2: 60},
-                {x: 1, val_0: 8, val_1: 18, val_2: 40},
-                {x: 2, val_0: 15, val_1: 40, val_2: 50}
+            self.data = [
+                {x: 0, val_0: 4, val_1: 32, val_2: 128, val_3: 16},
+                {x: 1, val_0: 8, val_1: 64, val_2: 64, val_3: 8},
+                {x: 2, val_0: 16, val_1: 128, val_2: 32, val_3: 4}
             ];
         
-            $scope.options = {
+            self.caloriesoptions = {
               axes: {
-                  x: {key: 'x', ticksFormat: '.2f', type: 'linear', min: 0, max: 2, ticks: 2},
-                  y: {type: 'linear', min: 0, max: 20, ticks: 5},
+                  x: {key: 'x', ticksFormat: '.2f', type: 'linear'},
+                  y: {type: 'linear', min: 0, max: 20},
               },
               margin: {
                   right: 100
               },
               series: [
-                  {y: 'val_0', color: '#00CC99', axis:'y0', thickness: '2px', type: 'area', striped: true, label: 'Calories'}
+                  {y: 'val_0', color: '#00CC99', axis:'y0', thickness: '2px', type: 'area',  label: 'Calories'}
               ],
                   lineMode: 'linear',
                   tension: 0.7,
@@ -47,7 +45,63 @@
                   hideOverflow: false,
                   columnsHGap: 5
             };
-
+        
+            self.proteinoptions = {
+              axes: {
+                  x: {key: 'x', ticksFormat: '.2f', type: 'linear'},
+                  y: {type: 'linear', min: 0, max: 140},
+              },
+              margin: {
+                  right: 100
+              },
+              series: [
+                  {y: 'val_1', color: '#FF66FF', axis:'y0', thickness: '2px', type: 'area', label: 'Protein'}
+              ],
+                  lineMode: 'linear',
+                  tension: 0.7,
+                  drawLegend: true,
+                  drawDots: true,
+                  hideOverflow: false,
+                  columnsHGap: 5
+            };
+        
+            self.fluidoptions = {
+              axes: {
+                  x: {key: 'x', ticksFormat: '.2f', type: 'linear'},
+                  y: {type: 'linear', min: 0, max: 140},
+              },
+              margin: {
+                  right: 100
+              },
+              series: [
+                  {y: 'val_2', color: '#FF9900', axis:'y0', thickness: '2px', type: 'area', label: 'Fluid'}
+              ],
+                  lineMode: 'linear',
+                  tension: 0.7,
+                  drawLegend: true,
+                  drawDots: true,
+                  hideOverflow: false,
+                  columnsHGap: 5
+            };
+            
+            self.weightoptions = {
+              axes: {
+                  x: {key: 'x', ticksFormat: '.2f', type: 'linear'},
+                  y: {type: 'linear', min: 0, max: 20},
+              },
+              margin: {
+                  right: 100
+              },
+              series: [
+                  {y: 'val_3', color: '#3399FF', axis:'y0', thickness: '2px', type: 'area', label: 'Weight'}
+              ],
+                  lineMode: 'linear',
+                  tension: 0.7,
+                  drawLegend: true,
+                  drawDots: true,
+                  hideOverflow: false,
+                  columnsHGap: 5
+            };
         
         
         

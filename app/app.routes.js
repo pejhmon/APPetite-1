@@ -37,7 +37,7 @@ angular
 
             //weight
             .when('/weight', {
-                templateUrl: 'app/components/weight/weightView.html',
+                templateUrl: 'app/components/symptoms/symptomsView.html',
                 controller: 'weightController as ctrl'
             })
 

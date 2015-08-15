@@ -46,28 +46,30 @@
                 <div class="panel-body history-panel">                
 
                     <div class ="container">
+                        
+                        <label>Display:
+                            <select id="foodComponents" name="foodComponents" ng-model ="ctrl.select" align="right">
+                                            <option id="calories_dropdown" value="calories">Calories</option>
+                                            <option id="protein_dropdown" value="protein">Protein</option>
+                                            <option id="fluid_dropdown" value="fluid">Fluid</option>
+                                            <option id="weight_dropdown" value="weight">Weight</option>
+                        </select></label>
                      
-                        <div>
-                            <linechart data="data" options="options" mode="" width="700" height="400"></linechart>
+                        <div ng-show="ctrl.select=='calories'">
+                            <linechart data="ctrl.data" options="ctrl.caloriesoptions" mode="" width="700" height="380"></linechart>
                         </div>
                         
+                        <div ng-show="ctrl.select=='protein'">
+                            <linechart data="ctrl.data" options="ctrl.proteinoptions" mode="" width="700" height="380"></linechart>
+                        </div>
                         
+                        <div ng-show="ctrl.select=='fluid'">
+                            <linechart data="ctrl.data" options="ctrl.fluidoptions" mode="" width="700" height="380"></linechart>
+                        </div>
                         
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                        <div ng-show="ctrl.select=='weight'">
+                            <linechart data="ctrl.data" options="ctrl.weightoptions" mode="" width="700" height="380"></linechart>
+                        </div>
                         
                         
                         
