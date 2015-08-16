@@ -2,16 +2,15 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('historyController', function() {
+        .controller('historyController', function(historyModel) {
             var self = this;
         
             self.tab = 'graph';
             //graph, table, summary
-        
             self.select = 'calories';
             //calories, protein, fluid, weight
             
-            self.weight = "100"; 
+            self.weight = historyModel.weight; 
 
             self.setTab = function (tabId) {
                 self.tab = tabId;
@@ -20,11 +19,13 @@
             self.isSet = function (tabId) {
                 return self.tab === tabId;
             };
-
+    
+            self.items = historyModel.userfoodmanifest;
+        
             self.data = [
-                {x: 0, val_0: 4, val_1: 32, val_2: 128, val_3: 16},
-                {x: 1, val_0: 8, val_1: 64, val_2: 64, val_3: 8},
-                {x: 2, val_0: 16, val_1: 128, val_2: 32, val_3: 4}
+                {x: 0, caloriesval: 4, proteinval: 32, fluidval: 128, weightval: 16},
+                {x: 1, caloriesval: 8, proteinval: 64, fluidval: 64, weightval: 8},
+                {x: 2, caloriesval: 16, proteinval: 128, fluidval: 32, weightval: 4}
             ];
         
             self.caloriesoptions = {
@@ -36,7 +37,7 @@
                   right: 100
               },
               series: [
-                  {y: 'val_0', color: '#00CC99', axis:'y0', thickness: '2px', type: 'area',  label: 'Calories'}
+                  {y: 'caloriesval', color: '#00CC99', axis:'y0', thickness: '2px', type: 'area',  label: 'Calories'}
               ],
                   lineMode: 'linear',
                   tension: 0.7,
@@ -55,7 +56,7 @@
                   right: 100
               },
               series: [
-                  {y: 'val_1', color: '#FF66FF', axis:'y0', thickness: '2px', type: 'area', label: 'Protein'}
+                  {y: 'proteinval', color: '#FF66FF', axis:'y0', thickness: '2px', type: 'area', label: 'Protein'}
               ],
                   lineMode: 'linear',
                   tension: 0.7,
@@ -74,7 +75,7 @@
                   right: 100
               },
               series: [
-                  {y: 'val_2', color: '#FF9900', axis:'y0', thickness: '2px', type: 'area', label: 'Fluid'}
+                  {y: 'fluidval', color: '#FF9900', axis:'y0', thickness: '2px', type: 'area', label: 'Fluid'}
               ],
                   lineMode: 'linear',
                   tension: 0.7,
@@ -93,7 +94,7 @@
                   right: 100
               },
               series: [
-                  {y: 'val_3', color: '#3399FF', axis:'y0', thickness: '2px', type: 'area', label: 'Weight'}
+                  {y: 'weightval', color: '#3399FF', axis:'y0', thickness: '2px', type: 'area', label: 'Weight'}
               ],
                   lineMode: 'linear',
                   tension: 0.7,
@@ -104,53 +105,19 @@
             };
         
         
-        
-        
-        
-        
-
-            self.items = [{ 
-                "FoodCode": "13-042",
-                "label": "Aduki beans, dried, boiled in unsalted water",
-                "EdibleProportion": "1.00",
-                "Water.g": "59.4",
-                "Protein.g": "9.3",
-                "Fat.g": "0.2",
-                "Carbohydrate.g": "22.5",
-                "Energy.kcal": "123",
-                "Energy.kJ": "525",
-                "Starch.g": "20.8",
-                "Quantity": "2",
-                "Date": "11/08/15"
-              },
-              {
-                "FoodCode": "13-041",
-                "label": "Aduki beans, dried, raw",
-                "EdibleProportion": "1.00",
-                "Water.g": "12.7",
-                "Protein.g": "19.9",
-                "Fat.g": "0.5",
-                "Carbohydrate.g": "50.1",
-                "Energy.kcal": "272",
-                "Energy.kJ": "1158",
-                "Starch.g": "44.7",
-                "Quantity": "3",
-                "Date": "10/08/15"
-              }
-            ];
-        
         self.processData = function(){
+            //For calculating quantity
             for(var i = 0; i < self.items.length; i++){
-                var multical = self.items[i]["Energy.kJ"] * self.items[i].Quantity;          
-                self.items[i].TotalCal = multical;
+                var multical = self.items[i].energy_kcal * self.items[i].quantity;          
+                self.items[i].total_calories = multical;
                 
-                var multipro = self.items[i]["Protein.g"] * self.items[i].Quantity;     
-                self.items[i].TotalPro = multipro;
+                var multipro = self.items[i].protein_g * self.items[i].quantity;     
+                self.items[i].total_protein = multipro;
                 
-                var multiflu = self.items[i]["Water.g"] * self.items[i].Quantity;
-                self.items[i].TotalFlu = multiflu;
+                var multiflu = self.items[i].water_g * self.items[i].quantity;
+                self.items[i].total_fluid = multiflu;
                 
-                self.items[i].TotalWeight = "Total Weight Value TBC";
+                self.items[i].total_weight = "Total Weight Value TBC";
             }; 
         };
         

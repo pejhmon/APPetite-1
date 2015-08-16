@@ -114,13 +114,13 @@
                                     <td ng-show="ctrl.select=='weight'">Total Weight</td>
                                 </tr>
                                 <tr ng-repeat="item in ctrl.items">
-                                        <td> {{ item.Quantity }}</td>
-                                        <td>{{ item.label }}</td>
-                                        <td>{{ item.Date }}</td>
-                                        <td ng-show="ctrl.select=='calories'">{{ item.TotalCal }}</td>
-                                        <td ng-show="ctrl.select=='protein'">{{ item.TotalPro }}</td>
-                                        <td ng-show="ctrl.select=='fluid'">{{ item.TotalFlu }}</td>
-                                        <td ng-show="ctrl.select=='weight'">{{ item.TotalWeight }}</td>
+                                        <td> {{ item.quantity }}</td>
+                                        <td>{{ item.foodname }}</td>
+                                        <td>{{ item.datetime }}</td>
+                                        <td ng-show="ctrl.select=='calories'">{{ item.total_calories }}</td>
+                                        <td ng-show="ctrl.select=='protein'">{{ item.total_protein }}</td>
+                                        <td ng-show="ctrl.select=='fluid'">{{ item.total_fluid }}</td>
+                                        <td ng-show="ctrl.select=='weight'">{{ item.total_weight }}</td>
                                 </tr>    
                             </table>
                         </div>

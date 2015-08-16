@@ -93,7 +93,7 @@
 	  					</div>
 	  					<div class="col-xs-6" align="right">
                             
-	  						<button type="button" class="btn btn-xs btn-info" ng-ctrl="ctrl.save()">Save this meal</button>
+	  						<button type="button" class="btn btn-xs btn-info" ng-click="ctrl.saveSelected()">Save this meal</button>
                             <button type="button" class="btn btn-xs btn-delete" ng-click="ctrl.clear()">Clear All</button>
         
 	  					</div>
@@ -134,8 +134,8 @@
   					</table>
   				</div>
 			</div>
-		    <div id="submitSession">
-		    	<button class="btn btn-lg btn-success btn-block" id="btn_submit_foods" ng-click="ctrl.submit()">Submit</button> 
+		    <div id="Session">
+		    	<button class="btn btn-lg btn-success btn-block" id="btn_submit_foods" ng-click="ctrl.submitSelected()">Submit</button> 
 		    </div>
     	</div>
 
@@ -171,7 +171,7 @@
                     </div>
       				<div class="modal-footer" id="modal-info-footer">
       				
-      				<a type="button" class="modal-button btn btn-success" ng-click="ctrl.submitNew()">Done</a>
+      				<a type="button" class="modal-button btn btn-success" ng-click="ctrl.submitNewFood()">Done</a>
       				
       				</div>
     			</div>
