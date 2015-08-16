@@ -38,9 +38,9 @@
                     self.selected.push(toadd);
                 }
                 
-                self.caltotal = self.caltotal + Number(toadd["Energy.kcal"]);
-                self.prototal = self.prototal + Number(toadd["Protein.g"]);
-                self.flutotal = self.flutotal + Number(toadd["Water.g"]);
+                self.caltotal = self.caltotal + Number(toadd.energy_kcal);
+                self.prototal = self.prototal + Number(toadd.protein_g);
+                self.flutotal = self.flutotal + Number(toadd.water_g);
             };
         
             self.checkForDuplicates = function(testee){
@@ -55,10 +55,8 @@
                 self.selected = [];
             };
         
-        
             self.saveSelected = function(){
                 foodModel.saveSelected(self.selected);
-                
             };
         
             self.submitSelected = function(){
@@ -66,6 +64,7 @@
             };
         
             self.submitNewFood = function(){
+                self.newfood.userid = null;
                 foodModel.submitNewFood(self.newfood);
                 self.tab = 'food';
             };  

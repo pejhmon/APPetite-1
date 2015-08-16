@@ -56,7 +56,7 @@
                 <div class="panel" ng-show="search.2">
                      <ul class="nav nav-tabs nav-stacked scroll">
                         <li role="presentation" ng-repeat="item in ctrl.items | filter:search">
-                            <a ng-click = ctrl.itemSelect(item)>{{ item.label }}</a>
+                            <a ng-click = ctrl.itemSelect(item)>{{ item.foodname }}</a>
                          </li>    
                     </ul>
                 </div>
@@ -73,13 +73,7 @@
   					</div>
   					<div class="btn-group" role="group">
     					<a type="button" class="btn btn-default" data-toggle="modal" 
-    						data-target="#modalInfo" id="frequentFood" ng-click="ctrl.setTab('frequent')">Frequent
-    						<span class="badge" id="frequentConter"></span>
-    					</a>
-					</div>
-  					<div class="btn-group" role="group">
-    					<a type="button" class="btn btn-default" data-toggle="modal" 
-    						data-target="#modalInfo" id="myMeals" ng-click="ctrl.setTab('meals')">My meals
+    						data-target="#modalInfo" id="myMeals" ng-click="ctrl.setTab('meals')">Saved meals
     						<span class="badge" id="mealCounter"></span>
     					</a>
   					</div>
@@ -105,7 +99,7 @@
                     <ul class="nav nav-tabs nav-stacked scroll">
                         <li role="presentation" ng-repeat="item in ctrl.selected">
                             <button class="btn btn-default" ng-click="ctrl.itemSelect(item)">{{ item.quantity }}</button>
-                            <span class="list-group">{{ item.label }}</span>
+                            <span class="list-group">{{ item.foodname }}</span>
                          </li>    
                     </ul>         
                     
@@ -152,19 +146,22 @@
                     
                         <table class="register-table">
                             <tr>
-                                <td><input ng-model="ctrl.newfood.name" name ="name" class="form-control" type="text" placeholder="Food name"></td>
+                                <td><input ng-model="ctrl.newfood.foodname" name ="name" class="form-control" type="text" placeholder="Food name"></td>
                             </tr>
                             <tr>
-                                <td><input ng-model="ctrl.newfood.weight" name ="weight" class="form-control" type="text" placeholder="Weight of food in kg"></td>
+                                <td><input ng-model="ctrl.newfood.edibleproportion" name ="weight" class="form-control" type="number" placeholder="Weight of food in kg"></td>
                             </tr>
                             <tr>
-                                <td><input ng-model="ctrl.newfood.calories" name ="calories" class="form-control" type="text" placeholder="Calories (kcal)"></td>
+                                <td><input ng-model="ctrl.newfood.energy_kcal" name ="calories" class="form-control" type="number" placeholder="Calories (kcal)"></td>
                             </tr>
                             <tr>
-                                <td><input ng-model="ctrl.newfood.protein" name ="protein" class="form-control" type="text" placeholder="Protien (g)"></td>
+                                <td><input ng-model="ctrl.newfood.protein_g" name ="protein" class="form-control" type="number" placeholder="Protien (g)"></td>
                             </tr>
                             <tr>
-                                <td><input ng-model="ctrl.newfood.fluid" name ="fluid" class="form-control" type="text" placeholder="Fluid (ml)"></td>
+                                <td><input ng-model="ctrl.newfood.water_g" name ="fluid" class="form-control" type="number" placeholder="Fluid (ml)"></td>
+                            </tr>
+                            <tr>
+                                <td><input ng-model="ctrl.newfood.fat_g" name ="fluid" class="form-control" type="number" placeholder="Fat (g)"></td>
                             </tr>
                         </table> 
                     
@@ -182,27 +179,7 @@
         
         
         
-            <div class="modal-dialog" ng-show="ctrl.isSet('frequent')">
-    			<div class="modal-content">
-      				<div class="modal-header">
-        				<button type="button" class="close" data-dismiss="modal">
-        					
-        					<span class="sr-only">Close</span>
-        				</button>
-        				<h4 class="modal-title" id="modal-info-title">Frequent</h4>
-      				</div>
-      				<div class="modal-body" id="modal-info-body">
-                        <ul class="nav nav-tabs nav-stacked scroll">
-                            <li role="presentation" ng-repeat="item in ctrl.items">
-                                <a ng-click = "ctrl.itemSelect(item)">{{ item.label }}</a>
-                            </li>    
-                        </ul>
-                    </div>
-      				<div class="modal-footer" id="modal-info-footer">
-      				      <a type="button" class="modal-button btn btn-success" id="" data-dismiss="modal" ng-click="ctrl.setTab('food')">Done</a>
-      				</div>
-    			</div>
-  			</div>
+
         
             <div class="modal-dialog" ng-show="ctrl.isSet('meals')">
     			<div class="modal-content">
@@ -211,12 +188,12 @@
         					
         					<span class="sr-only">Close</span>
         				</button>
-        				<h4 class="modal-title" id="modal-info-title">My Meals</h4>
+        				<h4 class="modal-title" id="modal-info-title">Saved Meals</h4>
       				</div>
       				<div class="modal-body" id="modal-info-body">
                         <ul class="nav nav-tabs nav-stacked scroll">
                             <li role="presentation" ng-repeat="item in ctrl.meals">
-                                <a>{{ item }}</a>
+                                <div><button class="btn btn-default">{{ item.quantity }}</button><a ng-click="ctrl.itemSelect(item)">  {{ item.foodname }}</a> from your meal saved <label>{{ item.datetime }}</label></div>
                             </li>    
                         </ul>
                     </div>
