@@ -12,8 +12,24 @@
                 //4 - meals
                 //5 - date
             self.selected = [];
+
+            
+            self.mmmerge = function(major, minor){
+                var output = [];
+                var i = 0;
+                while (i < major.length){
+                    output[i] = major[i];
+                    i++;
+                };
+                for (var j = 0; j < minor.length; j++){
+                    output[i] = minor[j];
+                    i++;
+                };
+                return output;
+            };
         
-            self.items = foodModel.foodlist;
+            self.items = self.mmmerge(foodModel.foodlist, foodModel.userfoodlist);
+
             self.meals = foodModel.userMealList;
             
             self.caltotal = 0;

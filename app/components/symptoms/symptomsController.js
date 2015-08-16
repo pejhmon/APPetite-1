@@ -11,8 +11,22 @@
             
             self.selected;
             self.tab;
+            
+            self.mmmerge = function(major, minor){
+                var output = [];
+                var i = 0;
+                while (i < major.length){
+                    output[i] = major[i];
+                    i++;
+                };
+                for (var j = 0; j < minor.length; j++){
+                    output[i] = minor[j];
+                    i++;
+                };
+                return output;
+            };
         
-            self.symptoms = symptomsModel.symptoms;
+            self.symptoms = self.mmmerge(symptomsModel.symptoms, symptomsModel.usersymptoms);
         
             self.selectSymptoms = function(toadd){
                 console.log(toadd);
