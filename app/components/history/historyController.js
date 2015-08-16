@@ -22,11 +22,7 @@
     
             self.items = historyModel.userfoodmanifest;
         
-            self.data = [
-                {x: 0, caloriesval: 4, proteinval: 32, fluidval: 128, weightval: 16},
-                {x: 1, caloriesval: 8, proteinval: 64, fluidval: 64, weightval: 8},
-                {x: 2, caloriesval: 16, proteinval: 128, fluidval: 32, weightval: 4}
-            ];
+  
         
             self.caloriesoptions = {
               axes: {
@@ -104,10 +100,20 @@
                   columnsHGap: 5
             };
         
+        self.data = [
+                {x: 0, caloriesval: 4, proteinval: 32, fluidval: 128, weightval: 16},
+                {x: 1, caloriesval: 8, proteinval: 64, fluidval: 64, weightval: 8},
+                {x: 2, caloriesval: 16, proteinval: 128, fluidval: 32, weightval: 4}
+            ];
+        
+        self.graphdata = [];
         
         self.processData = function(){
-            //For calculating quantity
+            
             for(var i = 0; i < self.items.length; i++){
+                
+                //For calculating totals for table
+                
                 var multical = self.items[i].energy_kcal * self.items[i].quantity;          
                 self.items[i].total_calories = multical;
                 
@@ -117,11 +123,23 @@
                 var multiflu = self.items[i].water_g * self.items[i].quantity;
                 self.items[i].total_fluid = multiflu;
                 
-                self.items[i].total_weight = "Total Weight Value TBC";
+                var multiweigh = 5;
+                self.items[i].total_weight = multiweigh;
+                
+                //for inserting values into graph
+                
+                var datetime = i;
+                //self.items[i].datetime
+                
+                var graphdataobject = {x: datetime, caloriesval: multical, proteinval: multipro, fluidval: multiflu, weightval: multiweigh};
+                self.graphdata.push(graphdataobject);
             }; 
+ 
         };
         
         self.processData();
+        console.log(self.graphdata);
+        console.log(self.data);
 
     });
 }());
