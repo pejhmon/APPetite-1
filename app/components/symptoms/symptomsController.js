@@ -2,30 +2,17 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('symptomsController', function() {
+        .controller('symptomsController', function(symptomsModel) {
             var self = this;
+        
             self.id = "symptoms";
             self.submitvalue = "Submit Symptom";
-            self.title = "Enter your Symtpoms below"
+            self.title = "Enter your Symptoms below";
+            
             self.selected;
             self.tab;
         
-            self.symptoms = [{ 
-                "Name": "Aching Fingers",
-              },
-              {
-                "Name": "Javascript Blues",
-              },
-              {
-                "Name": "Stinking Cold",
-              },
-              {
-                "Name": "Eyes Hurt",
-              },
-              {
-                "Name": "Tiredness",
-              },
-            ];
+            self.symptoms = symptomsModel.symptoms;
         
             self.selectSymptoms = function(toadd){
                 self.selected = toadd;
@@ -41,12 +28,12 @@
             };
         
             self.submitSymptom = function(){
-                console.log(self.newsymptom);
+                symptomsModel.submitNewSymptom(self.newsymptom);
             };
     
             self.submit = function(){
                 self.symptom.name = self.selected.Name;
-                console.log(self.symptom);  
+                symptomsModel.submitCurrentSymptom(self.symptom);  
             };
 
     });

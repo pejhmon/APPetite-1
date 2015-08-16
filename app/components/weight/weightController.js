@@ -2,13 +2,15 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('weightController', function() {
+        .controller('weightController', function(weightModel) {
             var self = this; 
             self.id = "weight";
-            self.weight = 100;
+            
             self.submitvalue = "Submit Weight";
-        
             self.title = "Entering your weight on a weekly basis is reccomended";
+        
+            self.weight = weightModel.weight;
+        
             self.symptoms = [{ 
                 "Name": "Swollen Legs",
               },
@@ -30,12 +32,11 @@
             };
         
              self.selectSymptoms = function(toadd){
-//                self.selected = toadd;
                 self.setTab(toadd.Name);
             };
         
             self.submit = function(){
-                console.log(self.symptom);
+                weightModel.submitWeight(self.symptom);
             }
     });
 }());
