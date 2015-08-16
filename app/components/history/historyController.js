@@ -9,8 +9,11 @@
             //graph, table, summary
             self.select = 'calories';
             //calories, protein, fluid, weight
+        
+            self.graphdata = [];
             
             self.weight = historyModel.weight; 
+            self.items = historyModel.userfoodmanifest;
 
             self.setTab = function (tabId) {
                 self.tab = tabId;
@@ -20,9 +23,6 @@
                 return self.tab === tabId;
             };
     
-            self.items = historyModel.userfoodmanifest;
-        
-  
         
             self.caloriesoptions = {
               axes: {
@@ -100,14 +100,6 @@
                   columnsHGap: 5
             };
         
-        self.data = [
-                {x: 0, caloriesval: 4, proteinval: 32, fluidval: 128, weightval: 16},
-                {x: 1, caloriesval: 8, proteinval: 64, fluidval: 64, weightval: 8},
-                {x: 2, caloriesval: 16, proteinval: 128, fluidval: 32, weightval: 4}
-            ];
-        
-        self.graphdata = [];
-        
         self.processData = function(){
             
             for(var i = 0; i < self.items.length; i++){
@@ -138,8 +130,6 @@
         };
         
         self.processData();
-        console.log(self.graphdata);
-        console.log(self.data);
 
     });
 }());

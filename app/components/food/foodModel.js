@@ -2,8 +2,26 @@
     'use strict';
     angular
         .module('appetiteApp')
-        .service('foodModel', function(){
+        .service('foodModel', function($http){
             var self = this;
+        
+            self.testFunction = function(){
+                var request = $http({
+                    method: 'post',
+                    url: "http://appetiteBackEnd.azurewebsites.net/pullAll.php",
+                    data: {
+                        tableName: 'foodlist'
+                    },
+                    headers: { 'Content-Type':'application/x-www-form-urlencoded' }
+                });
+                
+                request.success(function(data){
+                    console.log('FIRE');
+                    console.log(data); 
+                });
+            };
+        
+            self.testFunction();
         
             //SC1 - Pull the entireity of foodlist 
             self.foodlist = [{ 

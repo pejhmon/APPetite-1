@@ -2,7 +2,7 @@
 'use strict';
 angular
     .module('appetiteApp')
-    .config(function($routeProvider) {
+    .config(function($routeProvider, $httpProvider) {
         $routeProvider
 
             //login
@@ -46,7 +46,9 @@ angular
                 templateUrl: 'app/components/food/foodView.html',
                 controller: 'foodController as ctrl'
             });
-        
+       
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
     });
     
 }());

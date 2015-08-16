@@ -2,39 +2,61 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('homeController', function($scope) {
+        .controller('homeController', function($scope, homeModel) {
             var self = this;
         
-        self.percentCalculate = function(){
-            var todayCal = 1500;
-            var reccomendCal = 3000;
-            self.caloriesPercent = Math.round((todayCal / reccomendCal) * 100);
+            self.items = homeModel.userFoodManifestToday;
+        
+            self.todayCalories = 0;
+            self.todayProtein = 0;
+            self.todayFluid = 0;
+        
+        
+            self.processData = function(){
             
-            var todayPro = 50;
-            var reccomendPro = 106;
-            self.proteinPercent = Math.round((todayPro / reccomendPro) * 100);
-            
-            var todayFlu = 200;
-            var reccomendFlu = 300;
-            self.fluidPercent = Math.round((todayFlu / reccomendFlu) * 100);
-        };
-        
-        self.percentCalculate();
-        
+                for(var i = 0; i < self.items.length; i++){
 
-        self.caloriesdata = [
-            {label: "Calories", value: self.caloriesPercent, suffix: "%", color: "#00CC99"}
-        ];
-        
-         self.proteindata = [
-            {label: "Protein", value: self.proteinPercent, suffix: "%", color: "#FF66FF"}
-        ];
-        
-         self.fluiddata = [
-            {label: "Fluid", value: self.fluidPercent, suffix: "%", color: "#FF9900"}
-        ];
+                    //For calculating totals for table
 
-        self.gauge_options = {thickness: 15, mode: "gauge", total: 100};
+                    var multical = self.items[i].energy_kcal * self.items[i].quantity;          
+                    self.todayCalories = self.todayCalories + multical;
+                    
+
+                    var multipro = self.items[i].protein_g * self.items[i].quantity;     
+                    self.todayProtein = self.todayProtein + multipro;
+                    
+
+                    var multiflu = self.items[i].water_g * self.items[i].quantity;
+                    self.todayFluid = self.todayFluid + multiflu;
+                    
+                }; 
+            };
+        
+            self.processData();
+        
+            self.percentCalculate = function(){
+                var reccomendCal = homeModel.individualRequirements.finalcalories;
+                self.caloriesPercent = Math.round((self.todayCalories / reccomendCal) * 100);
+
+                var reccomendPro = 106;
+                self.proteinPercent = Math.round((self.todayProtein / reccomendPro) * 100);
+
+                var reccomendFlu = 300;
+                self.fluidPercent = Math.round((self.todayFluid / reccomendFlu) * 100);
+            };  
+            self.percentCalculate();
+        
+            self.caloriesdata = [
+                {label: "Calories", value: self.caloriesPercent, suffix: "%", color: "#00CC99"}
+            ];
+             self.proteindata = [
+                {label: "Protein", value: self.proteinPercent, suffix: "%", color: "#FF66FF"}
+            ];
+             self.fluiddata = [
+                {label: "Fluid", value: self.fluidPercent, suffix: "%", color: "#FF9900"}
+            ];
+        
+            self.gauge_options = {thickness: 15, mode: "gauge", total: 100};
         
     });
 }());

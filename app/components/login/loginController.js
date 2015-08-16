@@ -2,11 +2,11 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('loginController', function($location) {
+        .controller('loginController', function($location, loginModel) {
             var self = this;
             
             this.submit = function(){
-                console.log('User submitted with ', self.user);
+                loginModel.login(self.user);
                 $location.path('/home');
             };
     });
