@@ -15,8 +15,9 @@
             self.symptoms = symptomsModel.symptoms;
         
             self.selectSymptoms = function(toadd){
+                console.log(toadd);
                 self.selected = toadd;
-                self.setTab(toadd.Name);
+                self.setTab(toadd);
             };
         
             self.setTab = function (tabId) {
@@ -32,7 +33,7 @@
             };
     
             self.submit = function(){
-                self.symptom.name = self.selected.Name;
+                self.symptom.symptom = self.selected;
                 symptomsModel.submitCurrentSymptom(self.symptom);  
             };
 

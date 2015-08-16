@@ -33,10 +33,6 @@
 							<td align="left"><label>We have your weight at {{ ctrl.weight }}. Please update:</label></td>
 				            <td><input ng-model="ctrl.symptom.weight" name="date" class="form-control" type="number">
 						</div>
-						<div class="left-inner-addon">
-							<td align="left"><label>Date:</label></td>
-				            <td><input ng-model="ctrl.symptom.date" name="date" class="form-control" type="date">
-						</div>
 <!--
 						<div class="left-inner-addon ">
 							<td align="left"><label>Time:</label></td>
@@ -49,9 +45,9 @@
 
                 <div class="modal-body" id="modal-info-body">
                     <ul class="nav nav-tabs nav-stacked scroll">
-                        <li role="presentation" ng-repeat="symptom in ctrl.symptoms" ng-class='{"active":ctrl.tab=="{{symptom.Name}}"}'>
-                            <a ng-click="ctrl.selectSymptoms(symptom)">{{ symptom.Name }}</a>
-                            <input ng-model = "ctrl.symptom.comment" ng-show="ctrl.isSet(symptom.Name)" type=text class="form-control comments" placeholder="Optional comments" name="comment">
+                        <li role="presentation" ng-repeat="symptom in ctrl.symptoms" ng-class='{"active":ctrl.tab=="{{symptom.symptom}}"}'>
+                            <a ng-click="ctrl.selectSymptoms(symptom.symptom)">{{ symptom.symptom }}</a>
+                            <input ng-model = "ctrl.symptom.comment" ng-show="ctrl.isSet(symptom.symptom)" type=text class="form-control comments" placeholder="Optional comments" name="comment">
                         </li>    
                     </ul>
                 </div>
@@ -65,7 +61,7 @@
             
             <div class = "well">
                 <form ng-submit="ctrl.submitSymptom()" name="newSymptomForm">
-                    <input type=text class="form-control comments" ng-model="ctrl.newsymptom" placeholder="Enter new symptom here">
+                    <input type=text class="form-control comments" ng-model="ctrl.newsymptom.symptom" placeholder="Enter new symptom here">
                     <input class="modal-button btn btn-success" type="submit" value="Submit">
                 </form>
             </div>
