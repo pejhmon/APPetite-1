@@ -140,14 +140,14 @@
                 </div>
                 <div class="panel-body history-panel scroll">                
                     <h3>Weight</h3>
-                        <p>Registration Date: {{ ctrl.weight }}</p>
-                        <p>Registration Weight: {{ ctrl.weight }}</p>
-                        <p>Most Recent Weigh In: {{ ctrl.weight }}</p>
-                        <p>Most Recent Weight: {{ctrl.weight}}</p>
-                    <h3>Requirements</h3>
-                        <p>Calories Requirements: {{ctrl.weight}}</p>
-                        <p>Protein Requirements: {{ctrl.weight}}</p>
-                        <p>Fluid Requirements: {{ctrl.weight}}</p>
+                        <p>Registration Weight: {{ ctrl.earliestweight }}</p>
+                        <p>Most Recent Weight: {{ ctrl.weight }}</p>
+                    <div ng-repeat="req in ctrl.userrequirements">
+                        <h3>Requirements</h3>
+                            <p>Calories Requirements: {{ req.finalcalories }}</p>
+                            <p>Protein Requirements: {{ req.finalprotein }}</p>
+                            <p>Fluid Requirements: {{ req.finalfluid }}</p>
+                    </div>
                     <h3>Symptoms</h3>
                         <p>An ng-repeat of smyptoms</p>
                 </div>

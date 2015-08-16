@@ -13,6 +13,8 @@
             self.graphdata = [];
             
             self.weight = historyModel.weight; 
+            self.earliestweight = historyModel.earliestweight;
+            self.userrequirements = historyModel.userrequirements;
             self.items = historyModel.userfoodmanifest;
 
             self.setTab = function (tabId) {
