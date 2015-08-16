@@ -142,14 +142,16 @@
                     <h3>Weight</h3>
                         <p>Registration Weight: {{ ctrl.earliestweight }}</p>
                         <p>Most Recent Weight: {{ ctrl.weight }}</p>
-                    <div ng-repeat="req in ctrl.userrequirements">
-                        <h3>Requirements</h3>
+                    <h3>Requirements</h3>
+                        <div ng-repeat="req in ctrl.userrequirements">
                             <p>Calories Requirements: {{ req.finalcalories }}</p>
                             <p>Protein Requirements: {{ req.finalprotein }}</p>
                             <p>Fluid Requirements: {{ req.finalfluid }}</p>
-                    </div>
+                        </div>
                     <h3>Symptoms</h3>
-                        <p>An ng-repeat of smyptoms</p>
+                        <div ng-repeat = "symp in ctrl.usersymptomanifest">
+                            <p>{{ symp.symptom }}</p>
+                        </div>
                 </div>
 
                 
