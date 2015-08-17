@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('historyController', function(historyModel) {
+        .controller('historyController', function(pullModel, historyModel) {
             var self = this;
         
             self.tab = 'graph';
@@ -12,11 +12,11 @@
         
             self.graphdata = [];
             
-            self.weight = historyModel.weight; 
-            self.earliestweight = historyModel.earliestweight;
-            self.userrequirements = historyModel.userrequirements;
-            self.usersymptomanifest = historyModel.usersymptomanifest;
-            self.items = historyModel.userfoodmanifest;
+            self.weight = pullModel.pull_recent_uwm(); 
+            self.earliestweight = pullModel.pull_all_ufm();
+            self.userrequirements = pullModel.pull_all_urm();
+            self.usersymptomsmanifest = pullModel.pull_first_uwm();
+            self.items = pullModel.pull_all_usm();
 
             self.setTab = function (tabId) {
                 self.tab = tabId;

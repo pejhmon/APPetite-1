@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')
-        .service('symptomsModel', function(){
+        .service('symptomsModel', function($http){
             var self = this;
             
             //SC12 Pull all symptoms down from SymptomsList
@@ -11,10 +11,28 @@
             //SC17 Pull all usersymptoms
             self.usersymptoms = [{"id":"1","userid":"4","datetime":"2015-08-16 22:45:00","symptom":"I have the buttocks problems"}];
                 
+        
+        
+        
             //SC13 Log new symptom to usersymptomsList
             self.submitNewSymptom = function(newsymptom){
                 console.log(newsymptom);
+                var push = $http({
+                    method: 'post',
+                    url: "http://appetiteBackEnd.azurewebsites.net/push.php",
+                    data: {
+                        table: "usersymptomlist",
+                        userid: 9,
+                        symptom: newsymptom.symptom
+                    },
+                    headers: { 'Content-Type':'application/x-www-form-urlencoded' }
+                }).success(function (data){
+                    console.log('Returned: '+data);
+                });
             };
+        
+        
+        
         
             //SC14 Submit current symptoms to usersymptomManifest
             self.submitCurrentSymptom = function(currentsymptom){

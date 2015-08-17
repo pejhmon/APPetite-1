@@ -2,8 +2,10 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('foodController', function($location, foodModel) {
+        .controller('foodController', function($location, foodModel, pullModel) {
             var self = this;
+            
+            self.data = [];
         
             self.tab = 'food';
                 //1 - food
@@ -12,9 +14,9 @@
                 //4 - meals
                 //5 - date
             self.selected = [];
-
             
             self.mmmerge = function(major, minor){
+                
                 var output = [];
                 var i = 0;
                 while (i < major.length){
@@ -27,10 +29,12 @@
                 };
                 return output;
             };
+            
         
-            self.items = self.mmmerge(foodModel.foodlist, foodModel.userfoodlist);
+            //needs to be passed foodlist and userfoodlist
+            self.items = self.mmmerge(pullModel.pull_all_fl(), pullModel.pull_all_ufl());
 
-            self.meals = foodModel.userMealList;
+            self.meals = pullModel.pull_all_uml();
             
             self.caltotal = 0;
             self.prototal = 0;

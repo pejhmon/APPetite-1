@@ -2,10 +2,10 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('homeController', function($scope, homeModel) {
+        .controller('homeController', function($scope, pullModel, homeModel) {
             var self = this;
         
-            self.items = homeModel.userFoodManifestToday;
+            self.items = pullModel.pull_today_ufm();
         
             self.todayCalories = 0;
             self.todayProtein = 0;
