@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')
-        .service('weightModel', function(){
+        .service('weightModel', function(pushModel){
             var self = this;
             
             //SC6
@@ -10,7 +10,7 @@
         
             //SC15 - Push object to userweightmanifest
             self.submitWeight = function(currentweight){
-                console.log(currentweight);
+                pushModel.push_uwm(currentweight);
             };
     });
   

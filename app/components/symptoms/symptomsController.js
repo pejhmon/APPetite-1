@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('symptomsController', function(pullModel, symptomsModel) {
+        .controller('symptomsController', function(pullModel, pushModel) {
             var self = this;
         
             self.id = "symptoms";
@@ -13,6 +13,10 @@
             self.tab;
             
             self.mmmerge = function(major, minor){
+                console.log('Major');
+                console.log(major);
+                console.log('Minor');
+                console.log(minor);
                 var output = [];
                 var i = 0;
                 while (i < major.length){
@@ -43,12 +47,12 @@
             };
         
             self.submitSymptom = function(){
-                symptomsModel.submitNewSymptom(self.newsymptom);
+                pushModel.push_usl(self.newsymptom);
             };
     
             self.submit = function(){
                 self.symptom.symptom = self.selected;
-                symptomsModel.submitCurrentSymptom(self.symptom);  
+                pushModel.push_usm(self.symptom);  
             };
 
     });

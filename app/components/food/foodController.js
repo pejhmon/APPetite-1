@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('foodController', function($location, pullModel) {
+        .controller('foodController', function($location, pullModel, pushModel) {
             var self = this;
             
             self.data = [];
@@ -76,16 +76,16 @@
             };
         
             self.saveSelected = function(){
-                foodModel.saveSelected(self.selected);
+                pushModel.push_uml(self.selected);
             };
         
             self.submitSelected = function(){
-                foodModel.submitSelected(self.selected);
+                pushModel.push_ufm(self.selected);
             };
         
             self.submitNewFood = function(){
                 self.newfood.userid = null;
-                foodModel.submitNewFood(self.newfood);
+                pushModel.push_ufl(self.newfood);
                 self.tab = 'food';
             };  
         

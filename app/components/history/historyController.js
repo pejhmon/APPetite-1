@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('historyController', function(pullModel, historyModel) {
+        .controller('historyController', function(pullModel) {
             var self = this;
         
             self.tab = 'graph';

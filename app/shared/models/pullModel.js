@@ -42,7 +42,7 @@
                     data: {
                         table: "usermeallist",
                         type: "all",
-                        userID: 1
+                        userID: 9
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
@@ -57,7 +57,7 @@
                     data: {
                         table: "userweightmanifest",
                         type: "recent",
-                        userID: 1
+                        userID: 9
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
@@ -72,7 +72,7 @@
                     data: {
                         table: "userfoodmanifest",
                         type: "all",
-                        userID: 1
+                        userID: 9
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
@@ -87,7 +87,7 @@
                     data: {
                         table: "userfoodmanifest",
                         type: "today",
-                        userID: 1
+                        userID: 9
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
@@ -102,7 +102,7 @@
                     data: {
                         table: "userrequirements",
                         type: "all",
-                        userID: 1
+                        userID: 9
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
@@ -132,7 +132,7 @@
                     data: {
                         table: "userfoodlist",
                         type: "all",
-                        userID: 1
+                        userID: 9
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
@@ -147,7 +147,7 @@
                     data: {
                         table: "usersymptomslist",
                         type: "all",
-                        userID: 1
+                        userID: 9
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
@@ -162,7 +162,7 @@
                     data: {
                         table: "userweightmanifest",
                         type: "first",
-                        userID: 1
+                        userID: 9
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
@@ -177,7 +177,7 @@
                     data: {
                         table: "usersymptomsmanifest",
                         type: "all",
-                        userID: 1
+                        userID: 9
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })

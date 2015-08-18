@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('homeController', function($scope, pullModel, homeModel) {
+        .controller('homeController', function($scope, pullModel) {
             var self = this;
         
             self.items = pullModel.pull_today_ufm();
@@ -35,9 +35,11 @@
             self.processData();
         
             self.percentCalculate = function(){
-                var reccomendCal = homeModel.individualRequirements.finalcalories;
+                var reccomendCal = 2000; 
+                    //pullModel.pull_all_urm();
                 self.caloriesPercent = Math.round((self.todayCalories / reccomendCal) * 100);
-
+                
+                //TODO INPUT RECCOMENDED 
                 var reccomendPro = 106;
                 self.proteinPercent = Math.round((self.todayProtein / reccomendPro) * 100);
 

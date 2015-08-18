@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('weightController', function(pullModel, weightModel) {
+        .controller('weightController', function(pullModel) {
             var self = this; 
             self.id = "weight";
             
