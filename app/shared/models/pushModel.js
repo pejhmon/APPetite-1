@@ -7,19 +7,34 @@
             
             //SC3 - Push to userMealList
             self.push_uml = function(selected){
-                console.log('SC3 FIRE with '+selected);
-                var push = $http({
-                    method: 'post',
-                    url: "http://appetiteBackEnd.azurewebsites.net/push.php",
-                    data: {
-                        table: "usermeallist",
-                        userid: 9,
-                        symptom: newsymptom.symptom
-                    },
-                    headers: { 'Content-Type':'application/x-www-form-urlencoded' }
-                }).success(function (data){
-                    console.log('Returned: '+data);
-                });
+                console.log('SC3 FIRE with...');
+                console.log(selected);
+                
+                //looping through each time in given array
+                for (var i = 0; i < selected.length; i++){ 
+                    var push = $http({
+                        method: 'post',
+                        url: "http://appetiteBackEnd.azurewebsites.net/push.php",
+                        data: {
+                            table: "usermeallist",
+                            userid: 9,
+                            mealname: "genericmealname",
+                            carbohydrate_g: selected[i].carbohydrate_g,
+                            edibleproportion: selected[i].edibleproportion,
+                            energy_kcal: selected[i].energy_kcal,
+                            fat_g: selected[i].fat_g,
+                            foodcode: selected[i].foodcode,
+                            foodname: selected[i].foodname,
+                            protein_g: selected[i].protein_g,
+                            quantity: 1,
+                            starch_g: selected[i].starch_g,
+                            water_g: selected[i].water_g,
+                        },
+                        headers: { 'Content-Type':'application/x-www-form-urlencoded' }
+                    }).success(function (data){
+                        console.log('Returned: '+data);
+                    });
+                };
             };
         
             //SC4 - Push to userFoodManifest
@@ -37,7 +52,7 @@
                             userid: 9,
                             carbohydrate_g: selected[i].carbohydrate_g,
                             edibleproportion: selected[i].edibleproportion,
-                            energy_kcal: selected[i].energykcal,
+                            energy_kcal: selected[i].energy_kcal,
                             fat_g: selected[i].fat_g,
                             foodcode: selected[i].foodcode,
                             foodname: selected[i].foodname,
