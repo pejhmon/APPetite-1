@@ -68,15 +68,38 @@
             };
                 
             };
+                
+            //work anchor
         
             //SC5 - Push to userMealList
             self.push_ufl = function(newfood){
-                console.log('SC5 FIRE with '+newfood);
+                console.log('SC5 FIRE with...');
+                console.log(newfood);
+                
+                var push = $http({
+                    method: 'post',
+                    url: "http://appetiteBackEnd.azurewebsites.net/push.php",
+                    data: {
+                        table: "userfoodlist",
+                        userid: 9,
+                        edibleproportion: newfood.edibleproportion,
+                        energy_kcal: newfood.energy_kcal,
+                        fat_g: newfood.fat_g,
+                        foodcode: 100,
+                        foodname: newfood.foodname,
+                        protein_g: newfood.protein_g,
+                        water_g: newfood.water_g,
+                    },
+                    headers: { 'Content-Type':'application/x-www-form-urlencoded' }
+                }).success(function (data){
+                    console.log('Returned: '+data);
+                });
+                
+                
             };
         
             //SC13 - Log new symptom to usersymptomsList
             self.push_usl = function(newsymptom){
-                console.log('SC13 complete with '+newsymptom);
                 var push = $http({
                     method: 'post',
                     url: "http://appetiteBackEnd.azurewebsites.net/push.php",
@@ -93,7 +116,20 @@
             
             //SC14 - Submit current symptoms to usersymptomManifest
             self.push_usm = function(currentsymptom){
-                console.log('SC14 FIRE with '+currentsymptom);
+                console.log('Greetings from sunny push_usm');
+                console.log(currentsymptom);
+                var push = $http({
+                    method: 'post',
+                    url: "http://appetiteBackEnd.azurewebsites.net/push.php",
+                    data: {
+                        table: "usersymptommanifest",
+                        userid: 9,
+                        symptom: ""
+                    },
+                    headers: { 'Content-Type':'application/x-www-form-urlencoded' }
+                }).success(function (data){
+                    console.log('Returned: '+data);
+                });
             };
         
             //SC15 - Push object to userweightmanifest

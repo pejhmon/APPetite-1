@@ -13,10 +13,7 @@
             self.tab;
             
             self.mmmerge = function(major, minor){
-                console.log('Major');
-                console.log(major);
-                console.log('Minor');
-                console.log(minor);
+
                 var output = [];
                 var i = 0;
                 while (i < major.length){
@@ -30,7 +27,17 @@
                 return output;
             };
         
-            self.symptoms = self.mmmerge(pullModel.pull_all_sl(), pullModel.pull_all_usl());
+            var pullallsl = pullModel.pull_all_sl();
+            console.log('pullallsl');
+            console.log(pullallsl);
+        
+            var pullallusl = pullModel.pull_all_usl();
+            console.log('pullallusl');
+            console.log(pullallusl);
+            
+        
+            self.symptoms = pullallusl;
+        //self.mmmerge(pullallsl, pullallusl)
         
             self.selectSymptoms = function(toadd){
                 console.log(toadd);

@@ -33,6 +33,7 @@ angular
                 controller: 'symptomsController as ctrl',
                 resolve: {'symptomPullModel': function(pullModel){ 
                     return pullModel.slpromise;
+                    return pullModel.uslpromise;
                     }
                 }
             })
