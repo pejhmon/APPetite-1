@@ -68,8 +68,6 @@
             };
                 
             };
-                
-            //work anchor
         
             //SC5 - Push to userMealList
             self.push_ufl = function(newfood){
@@ -116,15 +114,18 @@
             
             //SC14 - Submit current symptoms to usersymptomManifest
             self.push_usm = function(currentsymptom){
-                console.log('Greetings from sunny push_usm');
-                console.log(currentsymptom);
+
                 var push = $http({
                     method: 'post',
                     url: "http://appetiteBackEnd.azurewebsites.net/push.php",
                     data: {
                         table: "usersymptommanifest",
                         userid: 9,
-                        symptom: ""
+                        symptomid: 202,
+                        symptom: currentsymptom.symptom,
+                        rating: 202,
+                        comment: currentsymptom.comment,
+                        
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 }).success(function (data){
@@ -134,7 +135,22 @@
         
             //SC15 - Push object to userweightmanifest
             self.push_uwm = function(currentweight){
-                console.log('SC15 FIRE with '+currentweight);
+                var push = $http({
+                    method: 'post',
+                    url: "http://appetiteBackEnd.azurewebsites.net/push.php",
+                    data: {
+                        table: "userweightmanifest",
+                        userid: 9,
+                        weight: currentweight.weight,
+                        swollenfeet: 1,
+                        swollenlegs: 0,
+                        swollenabdomen: 0,
+    
+                    },
+                    headers: { 'Content-Type':'application/x-www-form-urlencoded' }
+                }).success(function (data){
+                    console.log('Returned: '+data);
+                });
             };
 
             

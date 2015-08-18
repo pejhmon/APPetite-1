@@ -30,7 +30,7 @@
 					<div style="display: inline">
                         
                         <div ng-show="ctrl.id == 'weight'" class="left-inner-addon">
-							<td align="left"><label>We have your weight at {{ ctrl.weight }}. Please update:</label></td>
+							<td align="left"><label>We have your weight at {{ ctrl.weight[0].weight }}. Please update:</label></td>
 				            <td><input ng-model="ctrl.symptom.weight" name="date" class="form-control" type="number">
 						</div>
 <!--

@@ -24,6 +24,12 @@
                     output[i] = minor[j];
                     i++;
                 };
+                
+                //TODO REMOVE
+                if (major = 'Error: data parse failed'){
+                    console.log("MAJOR MINOR HOTFIX");
+                    output = minor;
+                }
                 return output;
             };
         
@@ -36,8 +42,7 @@
             console.log(pullallusl);
             
         
-            self.symptoms = pullallusl;
-        //self.mmmerge(pullallsl, pullallusl)
+            self.symptoms = self.mmmerge(pullallsl, pullallusl)
         
             self.selectSymptoms = function(toadd){
                 console.log(toadd);

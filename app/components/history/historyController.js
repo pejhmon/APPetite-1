@@ -12,7 +12,10 @@
         
             self.graphdata = [];
             
-            self.weight = pullModel.pull_recent_uwm(); 
+            self.weight = pullModel.pull_recent_uwm();
+                console.log('pull_recent_uwm');
+                console.log(self.weight);
+                
             self.earliestweight = pullModel.pull_all_ufm();
             self.userrequirements = pullModel.pull_all_urm();
             self.usersymptomsmanifest = pullModel.pull_first_uwm();
