@@ -4,7 +4,7 @@ angular
     .module('appetiteApp')
     .config(function($routeProvider, $httpProvider) {
         $routeProvider
-
+            
             //login
             .when('/', {
                 templateUrl: 'app/components/login/loginView.html',
@@ -21,8 +21,8 @@ angular
             .when('/home', {
                 templateUrl: 'app/components/home/homeView.html',
                 controller: 'homeController as ctrl',
-                resolve: {'pullModelData': function(pullModel){ 
-                    return fooodModel.tufmpromise;
+                resolve: {'homePullModel': function(pullModel){ 
+                    return pullModel.tufmpromise;
                     }
                 }
             })
@@ -31,8 +31,8 @@ angular
             .when('/symptoms', {
                 templateUrl: 'app/components/symptoms/symptomsView.html',
                 controller: 'symptomsController as ctrl',
-                resolve: {'pullModelData': function(pullModel){ 
-                    return fooodModel.slpromise;
+                resolve: {'symptomPullModel': function(pullModel){ 
+                    return pullModel.slpromise;
                     }
                 }
             })
@@ -41,11 +41,11 @@ angular
             .when('/history', {
                 templateUrl: 'app/components/history/historyView.html',
                 controller: 'historyController as ctrl',
-                resolve: {'pullModelData': function(pullModel){ 
-                    return fooodModel.ufmpromise;
-                    return fooodModel.urmpromise;
-                    return fooodModel.fuwmpromise;
-                    return fooodModel.usmpromise;
+                resolve: {'historyPullModel': function(pullModel){ 
+                    return pullModel.ufmpromise;
+                    return pullModel.urmpromise;
+                    return pullModel.fuwmpromise;
+                    return pullModel.usmpromise;
                     }
                 }
             })
@@ -54,8 +54,8 @@ angular
             .when('/weight', {
                 templateUrl: 'app/components/symptoms/symptomsView.html',
                 controller: 'weightController as ctrl',
-                resolve: {'pullModelData': function(pullModel){ 
-                    return fooodModel.ruwmpromise;
+                resolve: {'weightPullModel': function(pullModel){ 
+                    return pullModel.ruwmpromise;
                     }
                 }
             })
@@ -64,11 +64,11 @@ angular
             .when('/food', {
                 templateUrl: 'app/components/food/foodView.html',
                 controller: 'foodController as ctrl',
-                resolve: {'pullModelData': function(pullModel){
-                    return foodModel.flpromise; 
-                    return foodModel.umlpromise;  
-                    return foodModel.uflpromise;
-                    } 
+                resolve: {'foodPullModel': function(pullModel){
+                    return pullModel.flpromise; 
+                    return pullModel.umlpromise;  
+                    return pullModel.uflpromise;
+                    }
                 }
             });
        

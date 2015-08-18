@@ -9,7 +9,7 @@
             var foodlist = null;
             var umeallist = null;
             var recentweight = null;
-            var ufoodmaan = null;
+            var ufoodman = null;
             var todayufm = null;
             var ureqman = null;
             var symplist = null;
@@ -47,7 +47,7 @@
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
                 .success(function (data){
-                    umealist = data; 
+                    umeallist = data; 
                 });
         
             //Promise for SC6 - Pull recent weight from userweightmanifest
@@ -198,7 +198,7 @@
                 uflpromise: uflpromise,
                 uslpromise: uslpromise,
                 fuwmpromise: fuwmpromise,
-                usmpromise.usmpromise,
+                usmpromise: usmpromise,
                 
                 setData: function(data){
                     foodlist = data;

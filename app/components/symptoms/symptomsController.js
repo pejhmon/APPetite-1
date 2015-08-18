@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('symptomsController', function(foodModel, symptomsModel) {
+        .controller('symptomsController', function(pullModel, symptomsModel) {
             var self = this;
         
             self.id = "symptoms";
@@ -26,7 +26,7 @@
                 return output;
             };
         
-            self.symptoms = self.mmmerge(foodModel.pull_all_sl(), foodModel.pull_all_usl());
+            self.symptoms = self.mmmerge(pullModel.pull_all_sl(), pullModel.pull_all_usl());
         
             self.selectSymptoms = function(toadd){
                 console.log(toadd);

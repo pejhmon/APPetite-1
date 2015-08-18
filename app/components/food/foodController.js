@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('foodController', function($location, foodModel, pullModel) {
+        .controller('foodController', function($location, pullModel) {
             var self = this;
             
             self.data = [];

@@ -2,14 +2,14 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('weightController', function(foodModel, weightModel) {
+        .controller('weightController', function(pullModel, weightModel) {
             var self = this; 
             self.id = "weight";
             
             self.submitvalue = "Submit Weight";
             self.title = "Entering your weight on a weekly basis is reccomended";
         
-            self.weight = foodModel.pull_recent_uwm();
+            self.weight = pullModel.pull_recent_uwm();
         
             self.symptoms = [{ 
                 "Name": "Swollen Legs",
@@ -36,7 +36,7 @@
             };
         
             self.submit = function(){
-                weightModel.submitWeight(self.symptom);
+                pullModel.submitWeight(self.symptom);
             }
     });
 }());
