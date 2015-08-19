@@ -40,7 +40,7 @@
             self.caloriesoptions = {
               axes: {
                   x: {key: 'x', ticksFormat: '.2f', type: 'linear'},
-                  y: {type: 'linear', min: 0, max: 1000},
+                  y: {type: 'linear', min: 0, max: 700},
               },
               margin: {
                   right: 100
@@ -59,7 +59,7 @@
             self.proteinoptions = {
               axes: {
                   x: {key: 'x', ticksFormat: '.2f', type: 'linear'},
-                  y: {type: 'linear', min: 0, max: 50},
+                  y: {type: 'linear', min: 0, max: 30},
               },
               margin: {
                   right: 100
@@ -78,7 +78,7 @@
             self.fluidoptions = {
               axes: {
                   x: {key: 'x', ticksFormat: '.2f', type: 'linear'},
-                  y: {type: 'linear', min: 0, max: 140},
+                  y: {type: 'linear', min: 0, max: 100},
               },
               margin: {
                   right: 100
@@ -97,7 +97,7 @@
             self.weightoptions = {
               axes: {
                   x: {key: 'x', ticksFormat: '.2f', type: 'linear'},
-                  y: {type: 'linear', min: 0, max: 1000},
+                  y: {type: 'linear', min: 0, max: 400},
               },
               margin: {
                   right: 100
