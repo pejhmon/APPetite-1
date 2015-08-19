@@ -25,21 +25,12 @@
                     i++;
                 };
                 
-                //TODO REMOVE
-                if (major = 'Error: data parse failed'){
-                    console.log("MAJOR MINOR HOTFIX");
-                    output = minor;
-                }
                 return output;
             };
         
             var pullallsl = pullModel.pull_all_sl();
-            console.log('pullallsl');
-            console.log(pullallsl);
         
-            var pullallusl = pullModel.pull_all_usl();
-            console.log('pullallusl');
-            console.log(pullallusl);
+            var pullallusl = pullModel.pull_all_usl();  
             
         
             self.symptoms = self.mmmerge(pullallsl, pullallusl)

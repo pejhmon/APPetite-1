@@ -12,9 +12,7 @@
             var ufoodman = null;
             var todayufm = null;
             var ureqman = null;
-        
             var symplist = null;
-        
             var ufoodlist = null;
             var usymplist = null;
             var firstweight = null;
@@ -102,7 +100,7 @@
                     method: 'post',
                     url: "http://appetiteBackEnd.azurewebsites.net/pull.php",
                     data: {
-                        table: "userrequirements",
+                        table: "userrequirementsmanifest",
                         type: "all",
                         userID: 9
                     },
@@ -177,7 +175,7 @@
                     method: 'post',
                     url: "http://appetiteBackEnd.azurewebsites.net/pull.php",
                     data: {
-                        table: "usersymptomsmanifest",
+                        table: "usersymptommanifest",
                         type: "all",
                         userID: 9
                     },
@@ -251,11 +249,11 @@
                 },
                     
                 pull_first_uwm: function(){
-                    return fuwmpromise;
+                    return firstweight;
                 },
                     
                 pull_all_usm: function(){
-                    return usmpromise;
+                    return usymptom;
                 },
                     
             };   

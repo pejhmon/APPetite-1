@@ -12,13 +12,18 @@
         
             self.graphdata = [];
             
-            self.weight = pullModel.pull_recent_uwm();
-                console.log('pull_recent_uwm');
-                console.log(self.weight);
-                
-            self.earliestweight = pullModel.pull_all_ufm();
+            var recentuwm = pullModel.pull_recent_uwm();
+            self.weight = recentuwm[0].weight;
+        
+            var firstuwm = pullModel.pull_first_uwm();
+            self.earliestweight = firstuwm[0].weight;
+        
             self.userrequirements = pullModel.pull_all_urm();
-            self.usersymptomsmanifest = pullModel.pull_first_uwm();
+            
+            //work anchor
+            self.usersymptommanifest = pullModel.pull_all_usm();
+            console.log(self.usersymptommanifest);
+        
             self.items = pullModel.pull_all_usm();
 
             self.setTab = function (tabId) {

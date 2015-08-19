@@ -10,7 +10,6 @@
             self.title = "Entering your weight on a weekly basis is reccomended";
         
             self.weight = pullModel.pull_recent_uwm();
-            console.log(self.weight);
         
             self.symptoms = [{ 
                 "symptom": "Swollen Legs",

@@ -149,8 +149,10 @@
                             <p>Fluid Requirements: {{ req.finalfluid }}</p>
                         </div>
                     <h3>Symptoms</h3>
-                        <div ng-repeat = "symp in ctrl.usersymptomanifest">
-                            <p>{{ symp.symptom }}</p>
+                        <div ng-repeat = "symp in ctrl.usersymptommanifest">
+                            <h4>{{ symp.symptom }}</h4>
+                            <p>Recorded {{ symp.datetime.date }}</p>
+                            <p>{{ symp.comment }}</p>
                         </div>
                 </div>
 
