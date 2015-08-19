@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')
-        .service('pushModel', function($http){
+        .service('pushModel', function($http, pullModel){
             var self = this;
             
             //SC3 - Push to userMealList
@@ -33,6 +33,7 @@
                         headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                     }).success(function (data){
                         console.log('Returned: '+data);
+                        pullModel.
                     });
                 };
             };
@@ -142,9 +143,9 @@
                         table: "userweightmanifest",
                         userid: 9,
                         weight: currentweight.weight,
-                        swollenfeet: 1,
-                        swollenlegs: 0,
-                        swollenabdomen: 0,
+                        swollenfeet: currentweight.swollenfeet,
+                        swollenlegs: currentweight.swollenlegs,
+                        swollenabdomen: currentweight.swollenabdomen,
     
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
