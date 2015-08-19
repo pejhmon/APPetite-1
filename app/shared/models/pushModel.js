@@ -142,9 +142,9 @@
                         table: "userweightmanifest",
                         userid: 9,
                         weight: currentweight.weight,
-                        swollenfeet: 1,
-                        swollenlegs: 0,
-                        swollenabdomen: 0,
+                        swollenfeet: currentweight.swollenfeet,
+                        swollenlegs: currentweight.swollenlegs,
+                        swollenabdomen: currentweight.swollenabdomen,
     
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }

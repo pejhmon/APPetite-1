@@ -32,11 +32,24 @@
             };
         
              self.selectSymptoms = function(toadd){
-                self.setTab(toadd.Name);
+                console.log(toadd);
+                self.setTab(toadd);
+                
             };
         
             self.submit = function(){
+                if (self.tab == "Swollen Legs"){
+                    self.symptom.swollenlegs = 1;
+                    };
+                if (self.tab == "Swollen Feet"){
+                    self.symptom.swollenfeet = 1; 
+                    };
+                if (self.tab == "Swollen Abdomen"){
+                    self.symptom.swollenabdomen = 1;
+                    };
                 pushModel.push_uwm(self.symptom);
+                console.log(self.symptom)
             }
     });
 }());
+

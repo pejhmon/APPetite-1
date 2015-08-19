@@ -51,13 +51,13 @@
         
             self.submitSymptom = function(){
                 pushModel.push_usl(self.newsymptom);
-                $location.path('/symptom');
+
             };
     
             self.submit = function(){
                 self.symptom.symptom = self.selected;
                 pushModel.push_usm(self.symptom);  
-                $location.path('/symptom');
+                $location.path('/home');
             };
 
     });

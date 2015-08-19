@@ -81,12 +81,11 @@
         
             self.saveSelected = function(){
                 pushModel.push_uml(self.selected);
-                $location.path('/food');
             };
         
             self.submitSelected = function(){
                 pushModel.push_ufm(self.selected);
-                $location.path('/food');
+                $location.path('/home');
             };
         
             self.submitNewFood = function(){
