@@ -26,6 +26,10 @@
                 for (var j = 0; j < minor.length; j++){
                     output[i] = minor[j];
                     i++;
+                    console.log('Parsed minor');
+                    console.log(output[i]);
+                    console.log('Previous parsed major');
+                    console.log(output[i--]);
                 };
                 return output;
             };
@@ -77,10 +81,12 @@
         
             self.saveSelected = function(){
                 pushModel.push_uml(self.selected);
+                $location.path('/food');
             };
         
             self.submitSelected = function(){
                 pushModel.push_ufm(self.selected);
+                $location.path('/food');
             };
         
             self.submitNewFood = function(){

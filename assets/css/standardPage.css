@@ -4,6 +4,10 @@ body{
 	background-color:#eee;
 }
 
+.navbar{
+    background-color:#FF5050;
+}
+
 .linecontainer{
     background:white;
 }
@@ -389,7 +393,7 @@ a.clickable:hover { text-decoration:none; }
 
 div.main{
 padding: 10px 55px 40px;
-background-image: url("resources/fruitbowl.jpg");border: 15px solid white;
+background-image: url("../resources/fruitbowl.jpg");border: 15px solid white;
 box-shadow: 0 0 10px;
 border-radius: 2px;
 font-size: 13px;
