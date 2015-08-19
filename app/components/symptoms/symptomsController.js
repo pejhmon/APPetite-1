@@ -51,6 +51,7 @@
         
             self.submitSymptom = function(){
                 pushModel.push_usl(self.newsymptom);
+                pushModel.push_usm(self.newsymptom);
                 $location.path('/home');
             };
     
