@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('symptomsController', function(pullModel, pushModel) {
+        .controller('symptomsController', function($location, pullModel, pushModel) {
             var self = this;
         
             self.id = "symptoms";
@@ -51,7 +51,7 @@
         
             self.submitSymptom = function(){
                 pushModel.push_usl(self.newsymptom);
-
+                $location.path('/home');
             };
     
             self.submit = function(){

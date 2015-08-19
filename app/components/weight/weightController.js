@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('weightController', function(pullModel, pushModel) {
+        .controller('weightController', function($location, pullModel, pushModel) {
             var self = this; 
             self.id = "weight";
             
@@ -48,7 +48,8 @@
                     self.symptom.swollenabdomen = 1;
                     };
                 pushModel.push_uwm(self.symptom);
-                console.log(self.symptom)
+                console.log(self.symptom);
+                $location.path('/home');;
             }
     });
 }());
