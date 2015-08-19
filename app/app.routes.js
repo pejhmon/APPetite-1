@@ -47,6 +47,7 @@ angular
                     return pullModel.urmpromise;
                     return pullModel.fuwmpromise;
                     return pullModel.usmpromise;
+                    return pullModel.uwmpromise;
                     }
                 }
             })

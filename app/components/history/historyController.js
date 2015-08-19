@@ -22,9 +22,11 @@
             
             self.usersymptommanifest = pullModel.pull_all_usm();
             
-            //work anchor
             self.items = pullModel.pull_all_ufm();
-            console.log(self.items);
+        
+            //work anchor
+            self.weights = pullModel.pull_all_uwm();
+            console.log(self.weights);
 
             self.setTab = function (tabId) {
                 self.tab = tabId;
@@ -38,7 +40,7 @@
             self.caloriesoptions = {
               axes: {
                   x: {key: 'x', ticksFormat: '.2f', type: 'linear'},
-                  y: {type: 'linear', min: 0, max: 20},
+                  y: {type: 'linear', min: 0, max: 1000},
               },
               margin: {
                   right: 100
@@ -57,7 +59,7 @@
             self.proteinoptions = {
               axes: {
                   x: {key: 'x', ticksFormat: '.2f', type: 'linear'},
-                  y: {type: 'linear', min: 0, max: 140},
+                  y: {type: 'linear', min: 0, max: 50},
               },
               margin: {
                   right: 100
@@ -95,7 +97,7 @@
             self.weightoptions = {
               axes: {
                   x: {key: 'x', ticksFormat: '.2f', type: 'linear'},
-                  y: {type: 'linear', min: 0, max: 20},
+                  y: {type: 'linear', min: 0, max: 1000},
               },
               margin: {
                   right: 100
@@ -110,6 +112,8 @@
                   hideOverflow: false,
                   columnsHGap: 5
             };
+        
+        
         
         self.processData = function(){
             
@@ -126,8 +130,13 @@
                 var multiflu = self.items[i].water_g * self.items[i].quantity;
                 self.items[i].total_fluid = multiflu;
                 
-                var multiweigh = 5;
-                self.items[i].total_weight = multiweigh;
+                //Major issue with this - Weights need to be mapped to dates and then pumped out 
+                
+                var multiweight = 0;
+                
+                if (self.weights[i] != undefined){
+                    var multiweigh = self.weights[i].weight;
+                }
                 
                 //for inserting values into graph
                 

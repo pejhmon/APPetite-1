@@ -17,6 +17,7 @@
             var usymplist = null;
             var firstweight = null;
             var usymptom = null;
+            var weightlist = null;
         
             //Promises for each Server Call
         
@@ -184,6 +185,21 @@
                 .success(function (data){
                     usymptom = data; 
                 });  
+        
+            //Promise for SC20 - Pull all weights from userweightmanifest
+            var uwmpromise = $http({
+                    method: 'post',
+                    url: "http://appetiteBackEnd.azurewebsites.net/pull.php",
+                    data: {
+                        table: "userweightmanifest",
+                        type: "all",
+                        userID: 9
+                    },
+                    headers: { 'Content-Type':'application/x-www-form-urlencoded' }
+                })
+                .success(function (data){
+                    weightlist = data; 
+                });
             
         
             //Returning value
@@ -199,6 +215,7 @@
                 uslpromise: uslpromise,
                 fuwmpromise: fuwmpromise,
                 usmpromise: usmpromise,
+                uwmpromise: uwmpromise,
                 
                 setData: function(data){
                     foodlist = data;
@@ -254,6 +271,10 @@
                     
                 pull_all_usm: function(){
                     return usymptom;
+                },
+                
+                pull_all_uwm: function(){
+                    return weightlist;
                 },
                     
             };   
