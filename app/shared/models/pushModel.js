@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')
-        .service('pushModel', function($http, pullModel){
+        .service('pushModel', function($http, $location, pullModel){
             var self = this;
             
             //SC3 - Push to userMealList
@@ -34,6 +34,7 @@
                     }).success(function (data){
                         console.log('Returned: '+data);
                         pullModel.pull_all_uml();
+                     
                     });
                 };
             };
@@ -68,6 +69,7 @@
                         pullModel.pull_all_ufm();
                         pullModel.pull_today_ufm();
                         pullModel.pull_first_uwm();
+
                     });
             };
                 

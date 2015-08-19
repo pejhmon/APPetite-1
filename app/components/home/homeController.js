@@ -2,8 +2,10 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('homeController', function($scope, pullModel) {
+        .controller('homeController', function($scope, $window, pullModel) {
             var self = this;
+        
+            
         
             self.items = pullModel.pull_today_ufm();
         
@@ -59,6 +61,6 @@
             ];
         
             self.gauge_options = {thickness: 15, mode: "gauge", total: 100};
-        
+            
     });
 }());

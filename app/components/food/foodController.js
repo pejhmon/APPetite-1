@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('foodController', function($location, pullModel, pushModel) {
+        .controller('foodController', function($location, $window, pullModel, pushModel) {
             var self = this;
             
             self.data = [];
@@ -86,13 +86,17 @@
             self.submitSelected = function(){
                 pushModel.push_ufm(self.selected);
                 $location.path('/home');
+                $window.location.reload();
             };
         
             self.submitNewFood = function(){
                 self.newfood.userid = null;
                 pushModel.push_ufl(self.newfood);
                 self.tab = 'food';
+                $window.location.reload();
             };  
+        
+   
         
     });
 }());
