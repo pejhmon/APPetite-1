@@ -33,7 +33,7 @@
                         headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                     }).success(function (data){
                         console.log('Returned: '+data);
-                        pullModel.
+                        pullModel.pull_all_uml();
                     });
                 };
             };
@@ -65,6 +65,9 @@
                         headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                     }).success(function (data){
                         console.log('Returned: '+data);
+                        pullModel.pull_all_ufm();
+                        pullModel.pull_today_ufm();
+                        pullModel.pull_first_uwm();
                     });
             };
                 
@@ -92,6 +95,7 @@
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 }).success(function (data){
                     console.log('Returned: '+data);
+                    pullModel.pull_all_ufl;
                 });
                 
                 
@@ -110,6 +114,7 @@
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 }).success(function (data){
                     console.log('Returned: '+data);
+                    pulLModel.pull_all_usl();
                 });
             };
             
@@ -131,6 +136,7 @@
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 }).success(function (data){
                     console.log('Returned: '+data);
+                    pullModel.pull_all_usm();
                 });
             };
         
@@ -151,6 +157,8 @@
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 }).success(function (data){
                     console.log('Returned: '+data);
+                    pullModel.pull_first_uwm();
+                    pullModel.pull_all_uwm();
                 });
             };
 
