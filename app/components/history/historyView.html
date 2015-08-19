@@ -84,6 +84,14 @@
                 
                 <div class="panel-body history-panel">                
                     <form style="margin:0 auto;display:inline" id="parameters"> 
+                                                        <label>Display:
+                                    <select id="foodComponents" name="foodComponents" ng-model ="ctrl.select" align="right">
+                                            <option id="calories_dropdown" value="calories">Calories</option>
+                                            <option id="protein_dropdown" value="protein">Protein</option>
+                                            <option id="fluid_dropdown" value="fluid">Fluid</option>
+                                            <option id="weight_dropdown" value="weight">Weight</option>
+                                </select></label>
+<!--
                         <div class="well">
 	
                             <div class="left-inner-addon">
@@ -101,6 +109,7 @@
 	
 
                         </div>
+-->
 
                         <div class="well scroll">
                             <table class = "table">
@@ -116,7 +125,7 @@
                                 <tr ng-repeat="item in ctrl.items">
                                         <td> {{ item.quantity }}</td>
                                         <td>{{ item.foodname }}</td>
-                                        <td>{{ item.datetime }}</td>
+                                        <td>{{ item.datetime.date }}</td>
                                         <td ng-show="ctrl.select=='calories'">{{ item.total_calories }}</td>
                                         <td ng-show="ctrl.select=='protein'">{{ item.total_protein }}</td>
                                         <td ng-show="ctrl.select=='fluid'">{{ item.total_fluid }}</td>

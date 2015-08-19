@@ -20,11 +20,11 @@
         
             self.userrequirements = pullModel.pull_all_urm();
             
-            //work anchor
             self.usersymptommanifest = pullModel.pull_all_usm();
-            console.log(self.usersymptommanifest);
-        
-            self.items = pullModel.pull_all_usm();
+            
+            //work anchor
+            self.items = pullModel.pull_all_ufm();
+            console.log(self.items);
 
             self.setTab = function (tabId) {
                 self.tab = tabId;
