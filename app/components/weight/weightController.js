@@ -48,7 +48,6 @@
                     self.symptom.swollenabdomen = 1;
                     };
                 pushModel.push_uwm(self.symptom);
-                console.log(self.symptom);
                 $location.path('/home');;
                 $window.location.reload();
             }

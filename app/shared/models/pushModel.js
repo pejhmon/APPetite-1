@@ -6,10 +6,7 @@
             var self = this;
             
             //SC3 - Push to userMealList
-            self.push_uml = function(selected){
-                console.log('SC3 FIRE with...');
-                console.log(selected);
-                
+            self.push_uml = function(selected){       
                 //looping through each time in given array
                 for (var i = 0; i < selected.length; i++){ 
                     var push = $http({
@@ -31,7 +28,8 @@
                             water_g: selected[i].water_g,
                         },
                         headers: { 'Content-Type':'application/x-www-form-urlencoded' }
-                    }).success(function (data){
+                    })
+                    .success(function (data){
                         console.log('Returned: '+data);
                         pullModel.pull_all_uml();
                      
@@ -41,9 +39,6 @@
         
             //SC4 - Push to userFoodManifest
             self.push_ufm = function(selected){
-                console.log('SC4 FIRE with...');
-                console.log(selected);
-            
                 //looping through each item in array given over
                 for (var i = 0; i < selected.length; i++){
                     var push = $http({
@@ -64,22 +59,19 @@
                             water_g: selected[i].water_g,
                         },
                         headers: { 'Content-Type':'application/x-www-form-urlencoded' }
-                    }).success(function (data){
+                    })
+                    .success(function (data){
                         console.log('Returned: '+data);
                         pullModel.pull_all_ufm();
                         pullModel.pull_today_ufm();
                         pullModel.pull_first_uwm();
 
                     });
-            };
-                
+                };    
             };
         
             //SC5 - Push to userMealList
             self.push_ufl = function(newfood){
-                console.log('SC5 FIRE with...');
-                console.log(newfood);
-                
                 var push = $http({
                     method: 'post',
                     url: "http://appetiteBackEnd.azurewebsites.net/push.php",
@@ -95,12 +87,11 @@
                         water_g: newfood.water_g,
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
-                }).success(function (data){
+                })
+                .success(function (data){
                     console.log('Returned: '+data);
                     pullModel.pull_all_ufl;
-                });
-                
-                
+                });           
             };
         
             //SC13 - Log new symptom to usersymptomsList
@@ -114,7 +105,8 @@
                         symptom: newsymptom.symptom
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
-                }).success(function (data){
+                })
+                .success(function (data){
                     console.log('Returned: '+data);
                     pulLModel.pull_all_usl();
                 });
@@ -136,7 +128,8 @@
                         
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
-                }).success(function (data){
+                })
+                .success(function (data){
                     console.log('Returned: '+data);
                     pullModel.pull_all_usm();
                 });
@@ -157,7 +150,8 @@
     
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
-                }).success(function (data){
+                })
+                .success(function (data){
                     console.log('Returned: '+data);
                     pullModel.pull_first_uwm();
                     pullModel.pull_all_uwm();

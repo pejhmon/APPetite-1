@@ -7,7 +7,6 @@
             
             this.submit = function(){
                 loginModel.login(self.user);
-                $location.path('/home');
             };
     });
 }());

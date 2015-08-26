@@ -17,7 +17,7 @@
             };
         
             this.submit = function(){
-                registerModel.register(self.user);
+                registerModel.push_register(self.user);
                 $location.path('/');
             };
             
