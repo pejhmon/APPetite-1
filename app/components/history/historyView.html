@@ -112,7 +112,7 @@
 -->
 
                         <div class="well scroll">
-                            <table class = "table">
+                            <table class = "table" ng-hide="ctrl.select=='weight'">
                                 <tr>
                                     <td>Quantity</td>
                                     <td>Name</td>
@@ -120,16 +120,24 @@
                                     <td ng-show="ctrl.select=='calories'">Total Calories</td>
                                     <td ng-show="ctrl.select=='protein'">Total Protein</td>
                                     <td ng-show="ctrl.select=='fluid'">Total Fluid</td>
-                                    <td ng-show="ctrl.select=='weight'">Total Weight</td>
                                 </tr>
                                 <tr ng-repeat="item in ctrl.items">
                                         <td> {{ item.quantity }}</td>
                                         <td>{{ item.foodname }}</td>
-                                        <td>{{ item.datetime.date }}</td>
+                                        <td>{{ item.datetime.date | dateTime | date:'dd-MM-yyyy' }}</td>
                                         <td ng-show="ctrl.select=='calories'">{{ item.total_calories }}</td>
                                         <td ng-show="ctrl.select=='protein'">{{ item.total_protein }}</td>
                                         <td ng-show="ctrl.select=='fluid'">{{ item.total_fluid }}</td>
-                                        <td ng-show="ctrl.select=='weight'">{{ item.total_weight }}</td>
+                                </tr>    
+                            </table>
+                                <table class = "table" ng-show="ctrl.select=='weight'">
+                                <tr>
+                                    <td>Date</td>
+                                    <td>Weight</td>
+                                </tr>
+                                <tr ng-repeat = "record in ctrl.weights">
+                                    <td>{{ record.datetime.date | dateTime | date:'dd-MM-yyyy' }}</td>
+                                    <td>{{ record.weight }}</td>
                                 </tr>    
                             </table>
                         </div>

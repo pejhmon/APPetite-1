@@ -6,13 +6,14 @@
             var self = this;
             
             //SC11 - Register model
-            self.push_register = function(registerdetails){       
+            self.push_register = function(registerdetails){      
+                    
                     var push = $http({
                         method: 'post',
-                        url: "http://appetiteBackEnd.azurewebsites.net/push.php",
+                        url: "http://appetiteBackEnd.azurewebsites.net/registration.php",
                         data: {
                             table: "users",
-                            group: 1,
+                            group: 0,
                             password: registerdetails.password,
                             nhsnumber: registerdetails.nhsnumber,
                             dateofbirth: registerdetails.dateofbirth,

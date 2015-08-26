@@ -24,10 +24,8 @@
             
             self.items = pullModel.pull_all_ufm();
         
-            //work anchor
-            self.weights = pullModel.pull_all_uwm();
-            console.log(self.weights);
-
+            self.weights = pullModel.pull_all_uwm();  
+        
             self.setTab = function (tabId) {
                 self.tab = tabId;
             };
