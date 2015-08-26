@@ -58,7 +58,7 @@
                 <div class="panel" ng-show="search.2">
                      <ul class="nav nav-tabs nav-stacked scroll">
                         <li role="presentation" ng-repeat="item in ctrl.items | filter:search">
-                            <a ng-click = ctrl.itemSelect(item)>{{ item.foodname }}</a>
+                            <a ng-click = ctrl.itemSelect(item)>{{ item.foodname }} {{ item.edibleproportion }}kg</a>
                          </li>    
                     </ul>
                 </div>
@@ -102,6 +102,7 @@
                         <li role="presentation" ng-repeat="item in ctrl.selected">
                             <button class="btn btn-default" ng-click="ctrl.itemSelect(item)">{{ item.quantity }}</button>
                             <span class="list-group">{{ item.foodname }}</span>
+                            <span>{{ item.edibleproportion }}kg</span>
                          </li>    
                     </ul>         
                     
@@ -195,7 +196,7 @@
       				<div class="modal-body" id="modal-info-body">
                         <ul class="nav nav-tabs nav-stacked scroll">
                             <li role="presentation" ng-repeat="item in ctrl.meals">
-                                <div><button class="btn btn-default">{{ item.quantity }}</button><a ng-click="ctrl.itemSelect(item)">  {{ item.foodname }}</a> from your meal saved <label>{{ item.datetime.date }}</label></div>
+                                <div><button class="btn btn-default">{{ item.quantity }}</button><a ng-click="ctrl.itemSelect(item)"> <div>{{ item.edibleproportion }}kg of {{ item.foodname }}</a> from your meal saved <label>{{ item.datetime.date }}</label></div>
                             </li>    
                         </ul>
                     </div>
