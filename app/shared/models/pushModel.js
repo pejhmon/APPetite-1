@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')
-        .service('pushModel', function($http, $location, pullModel){
+        .service('pushModel', function($http, $location, $window, authService){
             var self = this;
             
             //SC3 - Push to userMealList
@@ -14,7 +14,7 @@
                         url: "http://appetiteBackEnd.azurewebsites.net/push.php",
                         data: {
                             table: "usermeallist",
-                            userid: 9,
+                            userid: authService.getUser(),
                             mealname: "genericmealname",
                             carbohydrate_g: selected[i].carbohydrate_g,
                             edibleproportion: selected[i].edibleproportion,
@@ -23,22 +23,21 @@
                             foodcode: selected[i].foodcode,
                             foodname: selected[i].foodname,
                             protein_g: selected[i].protein_g,
-                            quantity: 1,
+                            quantity: selected[i].quantity,
                             starch_g: selected[i].starch_g,
                             water_g: selected[i].water_g,
                         },
                         headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                     })
                     .success(function (data){
-                        console.log('Returned: '+data);
-                        pullModel.pull_all_uml();
-                     
+                        $window.location.reload();
                     });
                 };
             };
         
             //SC4 - Push to userFoodManifest
             self.push_ufm = function(selected){
+                console.log(selected);
                 //looping through each item in array given over
                 for (var i = 0; i < selected.length; i++){
                     var push = $http({
@@ -46,7 +45,7 @@
                         url: "http://appetiteBackEnd.azurewebsites.net/push.php",
                         data: {
                             table: "userfoodmanifest",
-                            userid: 9,
+                            userid: authService.getUser(),
                             carbohydrate_g: selected[i].carbohydrate_g,
                             edibleproportion: selected[i].edibleproportion,
                             energy_kcal: selected[i].energy_kcal,
@@ -54,18 +53,14 @@
                             foodcode: selected[i].foodcode,
                             foodname: selected[i].foodname,
                             protein_g: selected[i].protein_g,
-                            quantity: 1,
+                            quantity: selected[i].quantity,
                             starch_g: selected[i].starch_g,
                             water_g: selected[i].water_g,
                         },
                         headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                     })
                     .success(function (data){
-                        console.log('Returned: '+data);
-                        pullModel.pull_all_ufm();
-                        pullModel.pull_today_ufm();
-                        pullModel.pull_first_uwm();
-
+                        $window.location.reload();
                     });
                 };    
             };
@@ -77,7 +72,7 @@
                     url: "http://appetiteBackEnd.azurewebsites.net/push.php",
                     data: {
                         table: "userfoodlist",
-                        userid: 9,
+                        userid: authService.getUser(),
                         edibleproportion: newfood.edibleproportion,
                         energy_kcal: newfood.energy_kcal,
                         fat_g: newfood.fat_g,
@@ -89,8 +84,7 @@
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
                 .success(function (data){
-                    console.log('Returned: '+data);
-                    pullModel.pull_all_ufl;
+                    $window.location.reload();
                 });           
             };
         
@@ -101,14 +95,13 @@
                     url: "http://appetiteBackEnd.azurewebsites.net/push.php",
                     data: {
                         table: "usersymptomlist",
-                        userid: 9,
-                        symptom: newsymptom.symptom
+                        userid: authService.getUser(),
+                        symptom: newsymptom.symptom, 
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
                 .success(function (data){
-                    console.log('Returned: '+data);
-                    pulLModel.pull_all_usl();
+                    $window.location.reload();
                 });
             };
             
@@ -120,18 +113,17 @@
                     url: "http://appetiteBackEnd.azurewebsites.net/push.php",
                     data: {
                         table: "usersymptommanifest",
-                        userid: 9,
-                        symptomid: 202,
+                        userid: authService.getUser(),
                         symptom: currentsymptom.symptom,
-                        rating: 202,
                         comment: currentsymptom.comment,
+                        symptomid: 202,
+                        rating: 202,
                         
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
                 .success(function (data){
-                    console.log('Returned: '+data);
-                    pullModel.pull_all_usm();
+                    console.log(data);
                 });
             };
         
@@ -142,7 +134,7 @@
                     url: "http://appetiteBackEnd.azurewebsites.net/push.php",
                     data: {
                         table: "userweightmanifest",
-                        userid: 9,
+                        userid: authService.getUser(),
                         weight: currentweight.weight,
                         swollenfeet: currentweight.swollenfeet,
                         swollenlegs: currentweight.swollenlegs,
@@ -152,9 +144,7 @@
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
                 .success(function (data){
-                    console.log('Returned: '+data);
-                    pullModel.pull_first_uwm();
-                    pullModel.pull_all_uwm();
+                    $window.location.reload();
                 });
             };
 

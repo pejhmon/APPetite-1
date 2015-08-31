@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="col-md-1 border" >
+        <div ng-show="ctrl.id == 'Register'">
+            <a class="btn btn-default navbar-btn" id="nav-button" href="#/">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+            </a>
+        </div>
+        <div ng-hide="ctrl.id == 'Login'"><div ng-hide="ctrl.id == 'Register'"><div ng-hide="ctrl.id =='Home'">
+            <a class="btn btn-default navbar-btn" id="nav-button" href="#/home">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+            </a>
+            </div></div></div>
+
+    </div>
+    <div class="col-md-10 border navbar-title">{{ ctrl.id }}</div>
+    <div class="col-md-1 border"><img src="assets/resources/gsstlogo.jpg"  height="50" width="70"></div>
+
+</nav>

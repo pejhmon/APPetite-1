@@ -4,7 +4,7 @@
         .module('appetiteApp')   
         .controller('weightController', function($location, $window, pullModel, pushModel) {
             var self = this; 
-            self.id = "weight";
+            self.id = "Weight";
             
             self.submitvalue = "Submit Weight";
             self.title = "Entering your weight on a weekly basis is reccomended";

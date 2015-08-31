@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('appetiteApp')
-        .service('pullModel', function($http){
+        .service('pullModel', function($http, authService){
             var self = this;
             
             //Null variables for later filling in 
@@ -43,7 +43,7 @@
                     data: {
                         table: "usermeallist",
                         type: "all",
-                        userID: 9
+                        userID: authService.getUser()
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
@@ -58,7 +58,7 @@
                     data: {
                         table: "userweightmanifest",
                         type: "recent",
-                        userID: 9
+                        userID: authService.getUser()
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
@@ -73,7 +73,7 @@
                     data: {
                         table: "userfoodmanifest",
                         type: "all",
-                        userID: 9
+                        userID: authService.getUser()
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
@@ -88,7 +88,7 @@
                     data: {
                         table: "userfoodmanifest",
                         type: "today",
-                        userID: 9
+                        userID: authService.getUser()
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
@@ -103,7 +103,7 @@
                     data: {
                         table: "userrequirementsmanifest",
                         type: "all",
-                        userID: 9
+                        userID: authService.getUser()
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
@@ -133,7 +133,7 @@
                     data: {
                         table: "userfoodlist",
                         type: "all",
-                        userID: 9
+                        userID: authService.getUser()
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
@@ -148,7 +148,7 @@
                     data: {
                         table: "usersymptomlist",
                         type: "all",
-                        userID: 9
+                        userID: authService.getUser()
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
@@ -163,7 +163,7 @@
                     data: {
                         table: "userweightmanifest",
                         type: "first",
-                        userID: 9
+                        userID: authService.getUser()
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
@@ -178,7 +178,7 @@
                     data: {
                         table: "usersymptommanifest",
                         type: "all",
-                        userID: 9
+                        userID: authService.getUser()
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })
@@ -193,7 +193,7 @@
                     data: {
                         table: "userweightmanifest",
                         type: "all",
-                        userID: 9
+                        userID: authService.getUser()
                     },
                     headers: { 'Content-Type':'application/x-www-form-urlencoded' }
                 })

@@ -2,9 +2,9 @@
     'use strict';
     angular
         .module('appetiteApp')   
-        .controller('foodController', function($location, $window, pullModel, pushModel) {
+        .controller('foodController', function($location, pullModel, pushModel) {
             var self = this;
-            
+            self.id = "Add Food or Drink";
             self.data = [];
         
             self.tab = 'food';
@@ -26,10 +26,6 @@
                 for (var j = 0; j < minor.length; j++){
                     output[i] = minor[j];
                     i++;
-                    console.log('Parsed minor');
-                    console.log(output[i]);
-                    console.log('Previous parsed major');
-                    console.log(output[i--]);
                 };
                 return output;
             };
@@ -86,14 +82,12 @@
             self.submitSelected = function(){
                 pushModel.push_ufm(self.selected);
                 $location.path('/home');
-                $window.location.reload();
             };
         
             self.submitNewFood = function(){
                 self.newfood.userid = null;
                 pushModel.push_ufl(self.newfood);
                 self.tab = 'food';
-                $window.location.reload();
             };  
         
    

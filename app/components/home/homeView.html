@@ -1,25 +1,8 @@
 <html>
 
 <body>
-	<nav class="navbar navbar-default" role="navigation">
-    	
- 			<div class="col-xs-2 border"><img src="assets/resources/gsstlogo.jpg"  height="50" width="70"></div>
-      		<div class="col-xs-8 border navbar-title">APPetite</div>
-      		<div class="col-xs-2 visible-xs-block border">
-      			<span style="float:right">
-      				<button class="btn btn-default navbar-btn" data-toggle="collapse" 
-      					data-target="#navbar-collapse" id="toggle-button">
-      					<i class="glyphicon glyphicon-cog"></i>
-      				</button>
-     			</span>
-      		</div>
-      		<div class="collapse navbar-collapse" id="navbar-collapse">
-      			<ul class="nav navbar-nav navbar-right">
-        			<li><a href="#" id="log_out" onclick="SubmitController.prototype.submit(this.id)">Log out</a></li>
-      			</ul>
-    		</div>
-   
-	</nav>
+	<div navbar-widget></div>
+    
    	<div class="container">
    		<div class="row clearfix">
    			<div class="col-md-12 column"></div>
@@ -40,6 +23,8 @@
                     <div class="piecontainer">
                         <pie-chart class="pie" data="ctrl.fluiddata" options="ctrl.gauge_options"></pie-chart>
                     </div>
+ 
+
                     
                     
                         

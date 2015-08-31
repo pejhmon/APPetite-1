@@ -1,26 +1,6 @@
 <html>
     <body>
-        <nav class="navbar navbar-default" role="navigation">
-    
- 		<div class="col-xs-2 border">
-            <a class="btn btn-default navbar-btn" id="nav-button" href="#home">
- 			    <i class="glyphicon glyphicon-chevron-left"></i>
- 			</a>
-    	</div>
-      <div class="col-xs-8 border navbar-title">History</div>
-      <div class="col-xs-2 visible-xs-block border">
-      <span style="float:right">
-      <button class="btn btn-default navbar-btn" data-toggle="collapse" data-target="#navbar-collapse" id="toggle-button"><i class="glyphicon glyphicon-cog"></i>
-      </button>
-     </span>
-      </div>
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" id="log_out" onclick="SubmitController.prototype.submit(this.id)">Log out</a></li>
-      </ul>
-    </div>
-      
-    </nav>
+        <div navbar-widget></div>
     	
     	<div class="container">
 	   		<div class="row clearfix">
@@ -49,10 +29,10 @@
                         
                         <label>Display:
                             <select id="foodComponents" name="foodComponents" ng-model ="ctrl.select" align="right">
-                                            <option id="calories_dropdown" value="calories">Calories</option>
-                                            <option id="protein_dropdown" value="protein">Protein</option>
-                                            <option id="fluid_dropdown" value="fluid">Fluid</option>
-                                            <option id="weight_dropdown" value="weight">Weight</option>
+                                <option id="calories_dropdown" value="calories">Calories</option>
+                                <option id="protein_dropdown" value="protein">Protein</option>
+                                <option id="fluid_dropdown" value="fluid">Fluid</option>
+                                <option id="weight_dropdown" value="weight">Weight</option>
                         </select></label>
                      
                         <div ng-show="ctrl.select=='calories'">
