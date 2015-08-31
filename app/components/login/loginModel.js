@@ -9,7 +9,7 @@
             self.pull_login = function(logindetails){      
                 var pull = $http({
                     method: 'post',
-                    url: "http://appetiteBackEnd.azurewebsites.net/login.php",
+                    url: 'sql/login.php',
                     data: {
                         password: logindetails.password,
                         nhsnumber: logindetails.nhsnumber,

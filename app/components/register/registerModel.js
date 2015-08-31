@@ -11,7 +11,7 @@
             self.push_register = function(registerdetails){      
                 var push = $http({
                     method: 'post',
-                    url: "http://appetiteBackEnd.azurewebsites.net/registration.php",
+                    url: "sql/registration.php",
                     data: {
                         table: "users",
                         group: 0,
