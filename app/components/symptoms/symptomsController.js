@@ -5,7 +5,7 @@
         .controller('symptomsController', function($location, $window, pullModel, pushModel) {
             var self = this;
         
-            self.id = "symptoms";
+            self.id = "Symptoms";
             self.submitvalue = "Submit Symptom";
             self.title = "Enter your Symptoms below";
             
@@ -13,7 +13,6 @@
             self.tab;
             
             self.mmmerge = function(major, minor){
-
                 var output = [];
                 var i = 0;
                 while (i < major.length){
@@ -24,13 +23,16 @@
                     output[i] = minor[j];
                     i++;
                 };
-                
                 return output;
             };
         
             var pullallsl = pullModel.pull_all_sl();
+            console.log("PULLALLSL");
+            console.log(pullallsl);
         
             var pullallusl = pullModel.pull_all_usl();  
+            console.log("PULLALLUSL");
+            console.log(pullallusl);
             
         
             self.symptoms = self.mmmerge(pullallsl, pullallusl)
@@ -53,14 +55,12 @@
                 pushModel.push_usl(self.newsymptom);
                 pushModel.push_usm(self.newsymptom);
                 $location.path('/home');
-                $window.location.reload();
             };
     
             self.submit = function(){
                 self.symptom.symptom = self.selected;
                 pushModel.push_usm(self.symptom);  
                 $location.path('/home');
-                $window.location.reload();
             };
 
     });

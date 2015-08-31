@@ -20,33 +20,34 @@
         <script src="assets/libs/d3.min.js"></script>
         <script src="assets/libs/pie-chart.min.js"></script>
         <script src="assets/libs/line-chart.min.js"></script>
-<!--
-        <script src="lib/jquery/jquery-2.1.1.min.js"></script>
-   	    <script src="lib/jquery/jquery-ui-1.11.2.min.js"></script>
-   	    <script src="lib/bootstrap/bootstrap.min.js"></script>
--->
         
         <!-- Internal scripts -->
         <script src="app/app.module.js"></script>
         <script src="app/app.routes.js"></script>
         
+        <!-- Authentication Service -->
+        <script src="app/shared/auth/authService.js"></script>
+        
         <!-- Models -->
         <script src="app/components/login/loginModel.js"></script>
         <script src="app/components/register/registerModel.js"></script>
-        
         <script src="app/shared/models/pullModel.js"></script>
-        <script src="app/shared/models/pushModel.js"></script>
+        <script src="app/shared/models/pushModel.js"></script>  
         
         <!-- Controllers -->
+        <script src="app/components/home/homeController.js"></script>
         <script src="app/components/food/foodController.js"></script>
         <script src="app/components/history/historyController.js"></script>
-        <script src="app/components/home/homeController.js"></script>
         <script src="app/components/login/loginController.js"></script>
         <script src="app/components/register/registerController.js"></script>
         <script src="app/components/symptoms/symptomsController.js"></script>
         <script src="app/components/weight/weightController.js"></script>
+        
+        <!-- Directives -->
+        <script src="app/shared/navbar/navbarDirective.js"></script>
     
-
+        <!-- Custom Filters -->
+        <script src="app/shared/filters/dateTimeFilter.js"> </script>
         
         <title>APPetite2</title>
     </head>

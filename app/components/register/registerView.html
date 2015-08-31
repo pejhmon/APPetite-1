@@ -1,16 +1,7 @@
 <html>
 	<body>
- 		<nav class="navbar navbar-default" role="navigation">
-    		
- 				<div class="col-xs-2 border">
- 					<a class="btn btn-default navbar-btn" id="nav-button" href="#">
- 						<i class="glyphicon glyphicon-chevron-left"></i>
- 					</a>
-    			</div>
-      			<div class="col-xs-8 border navbar-title">Register</div>
-      		
-		</nav>
-		
+
+		<div navbar-widget></div>
 		
 		
 		
@@ -68,8 +59,8 @@
 								</tr>
                                 <tr>
                                     <td align="left"><label><a style="color:blue" id="TC" ng-click="ctrl.setTab('terms')">Agree to these Terms and Conditions?</a></label></td>
-                                    <td align="left" required>
-                                        <input type="radio" value="agreed" ng-model="ctrl.user.agreed">I agree
+                                    <td align="left">
+                                        <input type="radio">I agree
                                     </td>
                                 </tr>
 
@@ -89,8 +80,10 @@
                     <form ng-submit="ctrl.submit()" name="dieticianRegisterForm">	
                     <div class="panel panel-default element-margin">
                             <div class="panel-body tab-panel">
+                                
+                                This section is currently unavailable. 
 
-                                <table class="register-table">
+                                <!--<table class="register-table">
                                     <tr>
 
                                         <td align="left"><label>Identifying Number:</label></td>
@@ -117,12 +110,12 @@
                                 </tr>    
      
 
-                                </table> 
+                                </table> -->
                             
                             </div>
                         </div>
            
-                     <input class="btn btn-lg btn-success btn-block"  type = "submit" value = "submit" ng-disabled="dieticianRegisterForm.$invalid">
+                     <!--<input class="btn btn-lg btn-success btn-block"  type = "submit" value = "submit" ng-disabled="dieticianRegisterForm.$invalid">-->
 
                 </form>
 	</div>

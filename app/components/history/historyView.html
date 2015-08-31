@@ -1,26 +1,6 @@
 <html>
     <body>
-        <nav class="navbar navbar-default" role="navigation">
-    
- 		<div class="col-xs-2 border">
-            <a class="btn btn-default navbar-btn" id="nav-button" href="#home">
- 			    <i class="glyphicon glyphicon-chevron-left"></i>
- 			</a>
-    	</div>
-      <div class="col-xs-8 border navbar-title">History</div>
-      <div class="col-xs-2 visible-xs-block border">
-      <span style="float:right">
-      <button class="btn btn-default navbar-btn" data-toggle="collapse" data-target="#navbar-collapse" id="toggle-button"><i class="glyphicon glyphicon-cog"></i>
-      </button>
-     </span>
-      </div>
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" id="log_out" onclick="SubmitController.prototype.submit(this.id)">Log out</a></li>
-      </ul>
-    </div>
-      
-    </nav>
+        <div navbar-widget></div>
     	
     	<div class="container">
 	   		<div class="row clearfix">
@@ -49,10 +29,10 @@
                         
                         <label>Display:
                             <select id="foodComponents" name="foodComponents" ng-model ="ctrl.select" align="right">
-                                            <option id="calories_dropdown" value="calories">Calories</option>
-                                            <option id="protein_dropdown" value="protein">Protein</option>
-                                            <option id="fluid_dropdown" value="fluid">Fluid</option>
-                                            <option id="weight_dropdown" value="weight">Weight</option>
+                                <option id="calories_dropdown" value="calories">Calories</option>
+                                <option id="protein_dropdown" value="protein">Protein</option>
+                                <option id="fluid_dropdown" value="fluid">Fluid</option>
+                                <option id="weight_dropdown" value="weight">Weight</option>
                         </select></label>
                      
                         <div ng-show="ctrl.select=='calories'">
@@ -84,35 +64,17 @@
                 
                 <div class="panel-body history-panel">                
                     <form style="margin:0 auto;display:inline" id="parameters"> 
-                                                        <label>Display:
+                            <label>Display:
                                     <select id="foodComponents" name="foodComponents" ng-model ="ctrl.select" align="right">
                                             <option id="calories_dropdown" value="calories">Calories</option>
                                             <option id="protein_dropdown" value="protein">Protein</option>
                                             <option id="fluid_dropdown" value="fluid">Fluid</option>
                                             <option id="weight_dropdown" value="weight">Weight</option>
                                 </select></label>
-<!--
-                        <div class="well">
-	
-                            <div class="left-inner-addon">
-                                <label>Start Date:<input ng-model="ctrl.startDate" input name="date" class="form-control" type="date"></label>
-                                <label>End Date:<input ng-model="ctrl.endDate" name="date" class="form-control" type="date"></label>
-                                <label>Display:
-                                    <select id="foodComponents" name="foodComponents" ng-model ="ctrl.select" align="right">
-                                            <option id="calories_dropdown" value="calories">Calories</option>
-                                            <option id="protein_dropdown" value="protein">Protein</option>
-                                            <option id="fluid_dropdown" value="fluid">Fluid</option>
-                                            <option id="weight_dropdown" value="weight">Weight</option>
-                                </select></label>
-            
-                            </div>
-	
 
-                        </div>
--->
 
                         <div class="well scroll">
-                            <table class = "table">
+                            <table class = "table" ng-hide="ctrl.select=='weight'">
                                 <tr>
                                     <td>Quantity</td>
                                     <td>Name</td>
@@ -120,16 +82,24 @@
                                     <td ng-show="ctrl.select=='calories'">Total Calories</td>
                                     <td ng-show="ctrl.select=='protein'">Total Protein</td>
                                     <td ng-show="ctrl.select=='fluid'">Total Fluid</td>
-                                    <td ng-show="ctrl.select=='weight'">Total Weight</td>
                                 </tr>
-                                <tr ng-repeat="item in ctrl.items">
+                                <tr ng-repeat="item in ctrl.items | orderBy:'datetime.date':true">
                                         <td> {{ item.quantity }}</td>
                                         <td>{{ item.foodname }}</td>
-                                        <td>{{ item.datetime.date }}</td>
-                                        <td ng-show="ctrl.select=='calories'">{{ item.total_calories }}</td>
-                                        <td ng-show="ctrl.select=='protein'">{{ item.total_protein }}</td>
-                                        <td ng-show="ctrl.select=='fluid'">{{ item.total_fluid }}</td>
-                                        <td ng-show="ctrl.select=='weight'">{{ item.total_weight }}</td>
+                                        <td>{{ item.datetime.date | dateTime | date:'dd-MM-yyyy' }}</td>
+                                        <td ng-show="ctrl.select=='calories'">{{ item.total_calories }}kcal</td>
+                                        <td ng-show="ctrl.select=='protein'">{{ item.total_protein }}g</td>
+                                        <td ng-show="ctrl.select=='fluid'">{{ item.total_fluid }}g</td>
+                                </tr>    
+                            </table>
+                                <table class = "table" ng-show="ctrl.select=='weight'">
+                                <tr>
+                                    <td>Date</td>
+                                    <td>Weight</td>
+                                </tr>
+                                <tr ng-repeat = "record in ctrl.weights | orderBy:'datetime.date':true">
+                                    <td>{{ record.datetime.date | dateTime | date:'dd-MM-yyyy' }}</td>
+                                    <td>{{ record.weight }}kg</td>
                                 </tr>    
                             </table>
                         </div>
@@ -149,18 +119,18 @@
                 </div>
                 <div class="panel-body history-panel scroll">                
                     <h3>Weight</h3>
-                        <p>Registration Weight: {{ ctrl.earliestweight }}</p>
-                        <p>Most Recent Weight: {{ ctrl.weight }}</p>
+                        <p>Registration Weight: {{ ctrl.earliestweight }}kg</p>
+                        <p>Most Recent Weight: {{ ctrl.weight }}kg</p>
                     <h3>Requirements</h3>
                         <div ng-repeat="req in ctrl.userrequirements">
-                            <p>Calories Requirements: {{ req.finalcalories }}</p>
-                            <p>Protein Requirements: {{ req.finalprotein }}</p>
-                            <p>Fluid Requirements: {{ req.finalfluid }}</p>
+                            <p>Calories Requirements: {{ req.finalcalories }}kcal</p>
+                            <p>Protein Requirements: {{ req.finalprotein }}g</p>
+                            <p>Fluid Requirements: {{ req.finalfluid }}g</p>
                         </div>
                     <h3>Symptoms</h3>
                         <div ng-repeat = "symp in ctrl.usersymptommanifest">
                             <h4>{{ symp.symptom }}</h4>
-                            <p>Recorded {{ symp.datetime.date }}</p>
+                            <p>Recorded {{ symp.datetime.date | dateTime | date:'dd-MM-yyyy' }}</p>
                             <p>{{ symp.comment }}</p>
                         </div>
                 </div>
@@ -171,9 +141,6 @@
 						
                  
                 
-               </div>
-                <div class="space-margin">
-                    <button class="btn btn-lg btn-success btn-block" data-toggle="modal" data-target="#modal-export">Export</button> 
                </div>
             </div>
         </div>

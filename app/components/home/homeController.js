@@ -5,7 +5,7 @@
         .controller('homeController', function($scope, $window, pullModel) {
             var self = this;
         
-            
+            self.id = "Home";
         
             self.items = pullModel.pull_today_ufm();
         
@@ -33,6 +33,9 @@
                     
                 }; 
             };
+        
+        
+           
         
             self.processData();
         

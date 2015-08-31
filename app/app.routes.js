@@ -4,7 +4,7 @@ angular
     .module('appetiteApp')
     .config(function($routeProvider, $httpProvider) {
         $routeProvider
-            
+
             //login
             .when('/', {
                 templateUrl: 'app/components/login/loginView.html',

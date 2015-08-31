@@ -4,10 +4,9 @@
         .module('appetiteApp')   
         .controller('loginController', function($location, loginModel) {
             var self = this;
-            
-            this.submit = function(){
-                loginModel.login(self.user);
-                $location.path('/home');
+            self.id = "Login";
+            self.submit = function(){
+                loginModel.pull_login(self.user);
             };
     });
 }());

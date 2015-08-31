@@ -5,6 +5,8 @@
         .controller('historyController', function(pullModel) {
             var self = this;
         
+            self.id = "History";
+        
             self.tab = 'graph';
             //graph, table, summary
             self.select = 'calories';
@@ -13,21 +15,30 @@
             self.graphdata = [];
             
             var recentuwm = pullModel.pull_recent_uwm();
-            self.weight = recentuwm[0].weight;
+            if (recentuwm.length == 0){
+                self.weight = 0;
+            }else{
+                self.weight = recentuwm[0].weight;
+            };
         
             var firstuwm = pullModel.pull_first_uwm();
-            self.earliestweight = firstuwm[0].weight;
-        
+            if (firstuwm.length == 0){
+                self.earliestwieght = 0;
+            }else{
+                self.earliestweight = firstuwm[0].weight;
+            };
+            
             self.userrequirements = pullModel.pull_all_urm();
             
             self.usersymptommanifest = pullModel.pull_all_usm();
             
             self.items = pullModel.pull_all_ufm();
         
-            //work anchor
-            self.weights = pullModel.pull_all_uwm();
-            console.log(self.weights);
-
+            self.weights = pullModel.pull_all_uwm();  
+            if (self.weights == null){
+                self.weights = 0;
+            };
+        
             self.setTab = function (tabId) {
                 self.tab = tabId;
             };
@@ -136,7 +147,7 @@
                 
                 if (self.weights[i] != undefined){
                     var multiweigh = self.weights[i].weight;
-                }
+                };
                 
                 //for inserting values into graph
                 
